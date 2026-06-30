@@ -11,11 +11,12 @@ A digital buisness card that shows my applied skills in css,hrml and javascript!
 * BLOGS SECTION WHICH WILL BE UPDATED EVERY MONDAY (with videos too)
 * GLOWING CURSOR SHADOW
 * LIVE STATUS WIDGET (what I am currently doing)
+* WAVEY LETTERS ON WORDS
 
-  ## THROUGH THIS PROJECT
-  * I learned JS,CSS and HTML better than before
-  * How to build a personal site
-  * Basic CSS and JS concepts
+## THROUGH THIS PROJECT
+* I learned JS,CSS and HTML better than before
+* How to build a personal site
+* Basic CSS and JS concepts
 
 <img width="976" height="650" alt="image" src="https://github.com/user-attachments/assets/226732cb-ca47-4c7d-b7db-aef334d258b5" />
 <img width="1898" height="944" alt="image" src="https://github.com/user-attachments/assets/24f59388-6de7-407b-aca5-ed60d88342b4" />
