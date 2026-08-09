@@ -1,4 +1,5 @@
 # Personal Portfolio Website
+<img width="1869" height="1002" alt="image" src="https://github.com/user-attachments/assets/76d7ed70-7c6c-41b2-885e-cbfb3cf645c6" />
 
 This repository contains the source code for my personal website. It
 serves as both a portfolio and a place to document my progress as a
