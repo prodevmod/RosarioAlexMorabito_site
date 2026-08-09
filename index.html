@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex's Portfolio - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header id="navbar">
+        <nav class="nav-container">
+            <div class="nav-links">
+                <a href="index.html#aboutme" class="nav-link">
+                    <img src="media/about.svg" alt="About Me" class="nav-icon"> About Me
+                </a>
+                <a href="projects.html" class="nav-link">
+                    <img src="media/projects.svg" alt="Projects" class="nav-icon"> Projects
+                </a>
+                <a href="blogs.html" class="nav-link">
+                    <img src="media/blogs.svg" alt="Blogs" class="nav-icon"> Blogs
+                </a>
+                <a href="index.html#contacts" class="nav-link">
+                    <img src="media/contact.svg" alt="Contact" class="nav-icon"> Contact
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        
+        <!-- DASHBOARD ABOUT ME SECTION -->
+        <section id="aboutme" class="portfolio-section about-expanded-section">
+            <div class="player-header">
+                <span class="pulse-dot"></span>
+                <span class="player-title">SYSTEM_CORE // ABOUT_ME.LOG</span>
+            </div>
+            
+        <h2 class="main-title">Rosario Alexandros Morabito</h2>
+
+        <div class="radio-tag">
+            <span id="radioText"></span>
+        </div>
+
+            <div class="about-grid">
+                
+                <!-- 01: Background (Spans full width) -->
+                <div class="about-block full-width">
+                    <h3>01 // Background & Vibe</h3>
+                    <p class="section-desc">
+                        I'm a 15-year-old developer who absolutely loves coding. When I'm not writing code or grinding through The Odin Project, you can find me deep in the terminal headbanging aggressively to Metallica's <em>Master of Puppets</em>. Programming and thrash metal fuel my daily grind.
+                    </p>
+                </div>
+
+                <!-- 02: Vital Stats -->
+                <div class="about-block full-width">
+                    <h3>02 // Vital Stats</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Age</span>
+                            <span class="stat-value">15 Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Current Focus</span>
+                            <span class="stat-value">The Odin Project</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Status</span>
+                            <span class="stat-value">Building stemnet.gr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03: Technical Proficiency (Donut Charts) -->
+                <div class="about-block full-width">
+                    <h3>03 // System Analytics (Proficiency)</h3>
+                    <div class="donuts-container">
+                        <div class="donut-wrapper">
+                            <div class="donut-chart" style="--p: 85;">
+                                <span class="donut-inner">85%</span>
+                            </div>
+                            <span class="donut-label">C</span>
+                        </div>
+                        <div class="donut-wrapper">
+                            <div class="donut-chart" style="--p: 75;">
+                                <span class="donut-inner">75%</span>
+                            </div>
+                            <span class="donut-label">Python</span>
+                        </div>
+                        <div class="donut-wrapper">
+                            <div class="donut-chart" style="--p: 60;">
+                                <span class="donut-inner">60%</span>
+                            </div>
+                            <span class="donut-label">Git / Github</span>
+                        </div>
+                        <div class="donut-wrapper">
+                            <div class="donut-chart" style="--p: 80;">
+                                <span class="donut-inner">80%</span>
+                            </div>
+                            <span class="donut-label">Problem Solving</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-grid">
+                        <span class="skill-pill">C</span>
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">Git / GitHub</span>
+                    </div>
+                </div>
+
+                <!-- 04: Academic Matrix -->
+                <div class="about-block">
+                    <h3>04 // Academic Matrix</h3>
+                    <p class="section-desc" style="font-size: 0.9rem;">
+                        Proud graduate of Harvard's <strong>CS50</strong>, where I built a solid foundation in computer science, algorithms, and memory management. I just started tackling the full-stack curriculum at <strong>The Odin Project</strong> to master modern web development.
+                    </p>
+                </div>
+
+                <!-- 05: Active Operations -->
+                <div class="about-block">
+                    <h3>05 // Active Operations</h3>
+                    <ul class="active-projects-list">
+                        <li>
+                            <strong>stemnet.gr:</strong> My current main project and primary focus. <br>
+                            <a href="https://github.com/prodevmod/STEMNet.gr" target="_blank" class="repo-link">
+                                <img src="media/repo.svg" alt="Repo" style="width: 14px; vertical-align: middle; margin-right: 4px;"> [ View Repository ]
+                            </a>
+                        </li>
+                        <li><strong>The Odin Project:</strong> Building web applications and leveling up my JavaScript.</li>
+                        <li><strong>CS50:</strong> Successfully completed the rigorous introduction to computer science.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacts" class="portfolio-section">
+            <div class="player-header">
+                <span class="pulse-dot"></span>
+                <span class="player-title">ESTABLISH_CONNECTION</span>
+            </div>
+            <h2>Contact & Channels</h2>
+            <p class="tech-tag">Reach out across the network</p>
+            
+            <div class="social-icons-row">
+                <a href="https://www.youtube.com/@CodingTode" target="_blank" class="social-icon-link">
+                    <img src="media/youtube.svg" alt="YouTube" class="network-icon">
+                </a>
+                <a href="https://github.com/prodevmod" target="_blank" class="social-icon-link">
+                    <img src="media/repo.svg" alt="GitHub" class="network-icon">
+                </a>
+                <a href="https://www.instagram.com/code.toons" target="_blank" class="social-icon-link">
+                    <img src="media/instagram.svg" alt="Instagram" class="network-icon">
+                </a>
+                <a href="mailto:rosandrox12@gmail.com" class="social-icon-link">
+                    <img src="media/mail.svg" alt="Email" class="network-icon">
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
