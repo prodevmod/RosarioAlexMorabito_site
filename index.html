@@ -19,12 +19,15 @@
     <!-- Stylesheets & Favicon -->
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="media/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Sekuya&display=swap" rel="stylesheet">
 
-    <!-- INLINE CSS FOR SCROLL REVEAL & TEXT CONSTRAINTS -->
+    <!-- INLINE CSS FOR SCROLL REVEAL, TEXT CONSTRAINTS, & UNIFIED CYBERPUNK BOXES -->
     <style>
         /* Layout constraint for better readability */
         .content-constrained {
-            max-width: 70%;
+            max-width: 75%;
             margin: 0 auto;
             line-height: 1.7;
         }
@@ -54,6 +57,139 @@
         .skill-category:nth-child(2) { transition-delay: 0.2s; }
         .skill-category:nth-child(3) { transition-delay: 0.3s; }
         .skill-category:nth-child(4) { transition-delay: 0.4s; }
+
+        /* --- UNIFIED CYBERPUNK BOXES & VFX --- */
+        
+        /* Subtle Color-shifting Glow for Main Headers */
+        @keyframes headerGlow {
+            0% {
+                text-shadow: 0 0 10px rgba(0, 255, 255, 0.2), 0 0 20px rgba(0, 255, 255, 0.1);
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(138, 43, 226, 0.4), 0 0 30px rgba(0, 255, 255, 0.2);
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(0, 255, 255, 0.2), 0 0 20px rgba(0, 255, 255, 0.1);
+            }
+        }
+
+        .hero-main-title, .section-title {
+            animation: headerGlow 5s ease-in-out infinite;
+            margin-bottom: 30px; /* Extra breathing room below headings */
+        }
+
+        /* Universal Terminal Box styling for ALL text content blocks */
+        .terminal-box {
+            position: relative;
+            background: rgba(10, 15, 25, 0.65);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 14px;
+            padding: 35px; /* Generous padding so text isn't cramped */
+            margin-bottom: 30px; /* Healthy margin between blocks */
+            backdrop-filter: blur(8px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .terminal-box:hover {
+            transform: translateY(-4px) scale(1.005);
+            border-color: rgba(0, 255, 255, 0.7);
+            box-shadow: 0 12px 35px -10px rgba(0, 255, 255, 0.25);
+        }
+
+        /* Experience Grid Layout */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        /* Skill Category Cards VFX */
+        .skill-category {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            background: rgba(10, 15, 25, 0.5);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.15);
+            border-color: rgba(0, 255, 255, 0.4);
+        }
+
+        /* Donut Chart Glow & Pulse */
+        .donut-chart {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .donut-wrapper:hover .donut-chart {
+            transform: scale(1.08);
+            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.6));
+        }
+
+        /* Interactive Button Shimmer VFX */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(60deg, transparent, rgba(0, 255, 255, 0.15), transparent);
+            transform: rotate(45deg) translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .btn:hover::after {
+            transform: rotate(45deg) translateX(100%);
+        }
+
+        .btn:hover {
+            border-color: rgba(0, 255, 255, 1);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Social Icons Neon Hover VFX */
+        .social-icon-link {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-icon-link:hover {
+            transform: scale(1.15) translateY(-4px);
+            filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.8));
+        }
+
+        /* Pulse Dot Live Animation */
+        .pulse-dot {
+            box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7);
+            animation: pulseWave 2s infinite;
+        }
+
+        @keyframes pulseWave {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 8px rgba(0, 255, 255, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 255, 0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -88,18 +224,18 @@
                 <span class="player-title">SYSTEM_CORE // INITIALIZE</span>
             </div>
             <h1 class="hero-main-title reveal-on-scroll">Hi, Alex here</h1>
-            <h2 class="hero-name reveal-on-scroll">Rosario Alessandro Smirabito</h2>
+            <h2 class="hero-name reveal-on-scroll">Rosario Alexandros Morabito</h2>
             
             <div class="radio-tag reveal-on-scroll">
                 <span id="radioText"></span>
             </div>
 
-            <div class="reveal-on-scroll content-constrained">
+            <div class="reveal-on-scroll content-constrained terminal-box">
                 <p class="hero-desc paragraph-spacing">
-                    I am a 15-year-old developer and roboticist currently in my third year of gymnasium in Greece. My work exists at the intersection of software architecture, mechanical engineering, and community building. 
+                    I am a 15-year-old developer and roboticist building the infrastructure for the next generation of STEM learners in Greece. I operate at the edge where software architecture meets mechanical engineering, creating solutions that function as force multipliers for those without traditional guidance.
                 </p>
                 <p class="hero-desc">
-                    I believe technology should be accessible, and my primary focus is constructing tools that empower students who lack traditional STEM guidance to start their own technical journeys.
+                    Technology isn't just about syntax; it’s about accessibility. My mission is to tear down the barriers to entry in STEM, building tools that allow students to shortcut the noise and start shipping projects immediately.
                 </p>
             </div>
 
@@ -121,15 +257,15 @@
                 <div class="center-circle"></div>
             </div>
 
-            <div class="section-desc reveal-on-scroll content-constrained">
+            <div class="section-desc reveal-on-scroll content-constrained terminal-box">
                 <p class="paragraph-spacing">
-                    My obsession with the virtual world began in childhood, but it evolved into a serious discipline during my first year of high school when I started taking formal courses. In my second year, a mentor in my robotics club gave me a piece of advice that shifted my perspective entirely: "Do not focus solely on programming; master robotics as a whole." That moment sparked my drive to bridge the gap between abstract code and physical hardware.
+                    <strong>[VERSION 1.0]:</strong> My obsession with the virtual world didn't start with professional intent—it started with pure curiosity. That shifted during my first year of high school. A mentor gave me a directive that re-routed my career path: <em>"Stop treating code and hardware as separate entities. Master the whole machine."</em> That moment turned my focus from simple abstraction to full-stack integration.
                 </p>
                 <p class="paragraph-spacing">
-                    Since then, my education has been a self-driven pursuit of technical excellence. Graduating from Harvard's CS50 was more than an academic milestone; it gave me the architectural foundation to solve real-world problems. Currently, I am deep-diving into modern full-stack web development through The Odin Project. I constantly work on side projects to sharpen my skills, extending even to the hardware level, having recently built my own PC from scratch to ensure total understanding of my computing environment.
+                    <strong>[VERSION 2.0]:</strong> Since then, my education has been a self-driven pursuit of technical depth. Graduating from Harvard’s CS50 provided the architectural skeleton, but my real training happens in the dirt—deep-diving into The Odin Project and building my own rigs from raw components to understand the computing environment at the metal level.
                 </p>
                 <p>
-                    A major focus of mine has been addressing the limited access to STEM resources in Greece—a reality made clear when there is only one shop in an entire state for electronic components. To combat this, my CS50 final project was stemnet.gr. I built a self-sustaining, alumni-driven platform with a secure SQL database handling user authentication, posts, and affiliate networking. It is designed so Greek students can find out-of-school academic resources, post upcoming events, and find the guidance I once had to seek out myself.
+                    <strong>[CORE PROJECT]:</strong> Addressing the "STEM desert" in Greece. My final project, <em>stemnet.gr</em>, isn't just a website; it’s a localized network built on a custom SQL backbone. I designed it to solve a specific, real-world bug: the lack of accessible, community-vetted resources for students in my region. It’s a self-sustaining ecosystem for events, resources, and shared knowledge.
                 </p>
             </div>
         </section>
@@ -143,19 +279,20 @@
             <h2 class="section-title reveal-on-scroll">Capabilities & Track Record</h2>
             
             <div class="experience-grid content-constrained">
-                <div class="exp-card reveal-on-scroll">
+                <div class="exp-card terminal-box reveal-on-scroll" style="margin-bottom: 0;">
                     <h3>National Greek MIT Race Car Competition</h3>
-                    <p>Secured 2nd place nationwide in a highly competitive bracket. This challenge was an intensive exercise in physics, torque calculation, and mechanical design, forcing me to merge theoretical engineering with real-world constraints under pressure.</p>
+                    <p style="margin-top: 15px;">Secured 2nd place nationwide. This wasn't just a competition; it was an exercise in high-stakes engineering. I had to bridge the gap between theoretical torque calculations and real-world friction constraints, iterating firmware under pressure to maximize performance.</p>
                 </div>
-                <div class="exp-card reveal-on-scroll">
+                <div class="exp-card terminal-box reveal-on-scroll" style="margin-bottom: 0;">
                     <h3>Robotics & Systems Architecture</h3>
-                    <p>I operate at the intersection of hardware and software. I design automated systems from the ground up, implementing custom firmware and control loops to solve physical problems with precision-engineered code.</p>
+                    <p style="margin-top: 15px;">I design automated systems from the ground up. I don't just call libraries; I write custom control loops, bridge hardware-software communication protocols, and optimize firmware to solve physical problems with surgical precision.</p>
                 </div>
             </div>
 
-            <div class="section-desc reveal-on-scroll content-constrained" style="margin-top: 40px;">
+            <div class="section-desc reveal-on-scroll content-constrained terminal-box" style="margin-top: 30px;">
+                <h3 style="margin-bottom: 15px;">SYSTEM_INPUT // FUEL</h3>
                 <p>
-                    Coding requires a specific rhythm, and my workflow is entirely fueled by my music taste. When I am testing final software builds or writing complex logic, I listen to everything from the heavy, raw energy of Metallica and metal, to the structured, rhythmic flow of Daft Punk and disco. Whether I am headbanging to "Loser" by Tame Impala, vibing to "So Lucky" by Twice, or listening to pop, dynamic sound is a core part of my development process.
+                    Coding requires a specific rhythm. My workflow is driven by a chaotic but calculated soundscape: from the heavy, raw energy of Metallica and industrial metal to the structured, syncopated logic of Daft Punk and disco. Whether I’m headbanging to Tame Impala or analyzing complex logic, dynamic audio is the clock speed of my development process.
                 </p>
             </div>
         </section>
@@ -274,7 +411,7 @@
                 <span class="player-title">ESTABLISH_CONNECTION</span>
             </div>
             <h2 class="reveal-on-scroll">Contact & Channels</h2>
-            <p class="tech-tag reveal-on-scroll">Reach out across the network</p>
+            <p class="tech-tag reveal-on-scroll">Open a secure channel or track my latest builds</p>
             
             <div class="social-icons-row reveal-on-scroll">
                 <a href="https://www.youtube.com/@CodingTode" target="_blank" class="social-icon-link">
