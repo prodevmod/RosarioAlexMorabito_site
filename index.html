@@ -3,9 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex's Portfolio - Home</title>
+    <title>Rosario Alessandro Smirabito | Personal Portfolio</title>
+    
+    <!-- Primary Meta Tags & SEO -->
+    <meta name="title" content="Rosario Alessandro Smirabito | Personal Portfolio">
+    <meta name="description" content="Portfolio of Rosario Alessandro Smirabito - 15-year-old developer, roboticist, and open-source enthusiast building community-driven STEM solutions.">
+    <meta name="keywords" content="Rosario Alessandro Smirabito, portfolio, full-stack developer, web developer, C, Python, robotics, CS50, The Odin Project">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rosario Alessandro Smirabito | Personal Portfolio">
+    <meta property="og:description" content="Explore Alex's portfolio featuring coding projects, robotics achievements, skills, and contact links.">
+
+    <!-- Stylesheets & Favicon -->
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="media/favicon.svg">
+
+    <!-- INLINE CSS FOR SCROLL REVEAL & TEXT CONSTRAINTS -->
+    <style>
+        /* Layout constraint for better readability */
+        .content-constrained {
+            max-width: 70%;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Spacing utility for paragraphs */
+        .paragraph-spacing {
+            margin-bottom: 20px;
+        }
+
+        /* Initial state for elements that will fade in */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        /* Class added by JavaScript when visible */
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Stagger delays for lists/grids */
+        .exp-card:nth-child(1) { transition-delay: 0.2s; }
+        .exp-card:nth-child(2) { transition-delay: 0.4s; }
+        .skill-category:nth-child(1) { transition-delay: 0.1s; }
+        .skill-category:nth-child(2) { transition-delay: 0.2s; }
+        .skill-category:nth-child(3) { transition-delay: 0.3s; }
+        .skill-category:nth-child(4) { transition-delay: 0.4s; }
+    </style>
 </head>
 <body>
 
@@ -13,8 +62,8 @@
     <header id="navbar">
         <nav class="nav-container">
             <div class="nav-links">
-                <a href="index.html#aboutme" class="nav-link">
-                    <img src="media/about.svg" alt="About Me" class="nav-icon"> About Me
+                <a href="#hero" class="nav-link">
+                    <img src="media/about.svg" alt="Home" class="nav-icon"> Home
                 </a>
                 <a href="projects.html" class="nav-link">
                     <img src="media/projects.svg" alt="Projects" class="nav-icon"> Projects
@@ -22,129 +71,212 @@
                 <a href="blogs.html" class="nav-link">
                     <img src="media/blogs.svg" alt="Blogs" class="nav-icon"> Blogs
                 </a>
-                <a href="index.html#contacts" class="nav-link">
+                <a href="#contacts" class="nav-link">
                     <img src="media/contact.svg" alt="Contact" class="nav-icon"> Contact
                 </a>
             </div>
         </nav>
     </header>
 
-    <main class="content-wrapper">
-        
-        <!-- DASHBOARD ABOUT ME SECTION -->
-        <section id="aboutme" class="portfolio-section about-expanded-section">
-            <div class="player-header">
+    <!-- SCROLL SNAP CONTAINER -->
+    <main class="content-wrapper snap-container">
+
+        <!-- 01: HERO SECTION -->
+        <section id="hero" class="full-screen-section snap-section">
+            <div class="player-header reveal-on-scroll">
                 <span class="pulse-dot"></span>
-                <span class="player-title">SYSTEM_CORE // ABOUT_ME.LOG</span>
+                <span class="player-title">SYSTEM_CORE // INITIALIZE</span>
             </div>
+            <h1 class="hero-main-title reveal-on-scroll">Hi, Alex here</h1>
+            <h2 class="hero-name reveal-on-scroll">Rosario Alessandro Smirabito</h2>
             
-        <h2 class="main-title">Rosario Alexandros Morabito</h2>
+            <div class="radio-tag reveal-on-scroll">
+                <span id="radioText"></span>
+            </div>
 
-        <div class="radio-tag">
-            <span id="radioText"></span>
-        </div>
+            <div class="reveal-on-scroll content-constrained">
+                <p class="hero-desc paragraph-spacing">
+                    I am a 15-year-old developer and roboticist currently in my third year of gymnasium in Greece. My work exists at the intersection of software architecture, mechanical engineering, and community building. 
+                </p>
+                <p class="hero-desc">
+                    I believe technology should be accessible, and my primary focus is constructing tools that empower students who lack traditional STEM guidance to start their own technical journeys.
+                </p>
+            </div>
 
-            <div class="about-grid">
-                
-                <!-- 01: Background (Spans full width) -->
-                <div class="about-block full-width">
-                    <h3>01 // Background & Vibe</h3>
-                    <p class="section-desc">
-                        I'm a 15-year-old developer who absolutely loves coding. When I'm not writing code or grinding through The Odin Project, you can find me deep in the terminal headbanging aggressively to Metallica's <em>Master of Puppets</em>. Programming and thrash metal fuel my daily grind.
-                    </p>
+            <div class="hero-buttons reveal-on-scroll" style="margin-top: 30px;">
+                <a href="#journey" class="btn">About Me</a>
+                <a href="#skills" class="btn">Skills</a>
+            </div>
+        </section>
+
+        <!-- 02: MY JOURNEY SECTION -->
+        <section id="journey" class="full-screen-section snap-section">
+            <div class="player-header reveal-on-scroll">
+                <span class="pulse-dot"></span>
+                <span class="player-title">SYSTEM_LOG // JOURNEY.LOG</span>
+            </div>
+            <h2 class="section-title reveal-on-scroll">The Background</h2>
+            
+            <div class="center-circle-container reveal-on-scroll">
+                <div class="center-circle"></div>
+            </div>
+
+            <div class="section-desc reveal-on-scroll content-constrained">
+                <p class="paragraph-spacing">
+                    My obsession with the virtual world began in childhood, but it evolved into a serious discipline during my first year of high school when I started taking formal courses. In my second year, a mentor in my robotics club gave me a piece of advice that shifted my perspective entirely: "Do not focus solely on programming; master robotics as a whole." That moment sparked my drive to bridge the gap between abstract code and physical hardware.
+                </p>
+                <p class="paragraph-spacing">
+                    Since then, my education has been a self-driven pursuit of technical excellence. Graduating from Harvard's CS50 was more than an academic milestone; it gave me the architectural foundation to solve real-world problems. Currently, I am deep-diving into modern full-stack web development through The Odin Project. I constantly work on side projects to sharpen my skills, extending even to the hardware level, having recently built my own PC from scratch to ensure total understanding of my computing environment.
+                </p>
+                <p>
+                    A major focus of mine has been addressing the limited access to STEM resources in Greece—a reality made clear when there is only one shop in an entire state for electronic components. To combat this, my CS50 final project was stemnet.gr. I built a self-sustaining, alumni-driven platform with a secure SQL database handling user authentication, posts, and affiliate networking. It is designed so Greek students can find out-of-school academic resources, post upcoming events, and find the guidance I once had to seek out myself.
+                </p>
+            </div>
+        </section>
+
+        <!-- 03: EXPERIENCE SECTION -->
+        <section id="experience" class="full-screen-section snap-section">
+            <div class="player-header reveal-on-scroll">
+                <span class="pulse-dot"></span>
+                <span class="player-title">SYSTEM_LOG // EXPERIENCE.LOG</span>
+            </div>
+            <h2 class="section-title reveal-on-scroll">Capabilities & Track Record</h2>
+            
+            <div class="experience-grid content-constrained">
+                <div class="exp-card reveal-on-scroll">
+                    <h3>National Greek MIT Race Car Competition</h3>
+                    <p>Secured 2nd place nationwide in a highly competitive bracket. This challenge was an intensive exercise in physics, torque calculation, and mechanical design, forcing me to merge theoretical engineering with real-world constraints under pressure.</p>
                 </div>
+                <div class="exp-card reveal-on-scroll">
+                    <h3>Robotics & Systems Architecture</h3>
+                    <p>I operate at the intersection of hardware and software. I design automated systems from the ground up, implementing custom firmware and control loops to solve physical problems with precision-engineered code.</p>
+                </div>
+            </div>
 
-                <!-- 02: Vital Stats -->
-                <div class="about-block full-width">
-                    <h3>02 // Vital Stats</h3>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-label">Age</span>
-                            <span class="stat-value">15 Years</span>
+            <div class="section-desc reveal-on-scroll content-constrained" style="margin-top: 40px;">
+                <p>
+                    Coding requires a specific rhythm, and my workflow is entirely fueled by my music taste. When I am testing final software builds or writing complex logic, I listen to everything from the heavy, raw energy of Metallica and metal, to the structured, rhythmic flow of Daft Punk and disco. Whether I am headbanging to "Loser" by Tame Impala, vibing to "So Lucky" by Twice, or listening to pop, dynamic sound is a core part of my development process.
+                </p>
+            </div>
+        </section>
+
+        <!-- 04: SKILLS SECTION -->
+        <section id="skills" class="full-screen-section snap-section skill-snap-parent">
+            <div class="player-header reveal-on-scroll">
+                <span class="pulse-dot"></span>
+                <span class="player-title">SYSTEM_ANALYTICS // PROFICIENCY</span>
+            </div>
+            <h2 class="section-title reveal-on-scroll">Technical Skills</h2>
+
+            <!-- Category: Languages -->
+            <div class="skill-category reveal-on-scroll">
+                <h3>Languages</h3>
+                <div class="donuts-container">
+                    <div class="donut-wrapper">
+                        <div class="donut-chart" style="--p: 85;">
+                            <img src="media/c.svg" alt="C" class="donut-icon">
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Current Focus</span>
-                            <span class="stat-value">The Odin Project</span>
+                        <span class="donut-label-pct">85%</span>
+                        <span class="donut-label-name">C</span>
+                    </div>
+                    <div class="donut-wrapper">
+                        <div class="donut-chart" style="--p: 80;">
+                            <img src="media/cpp.svg" alt="C++" class="donut-icon">
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Status</span>
-                            <span class="stat-value">Building stemnet.gr</span>
+                        <span class="donut-label-pct">80%</span>
+                        <span class="donut-label-name">C++</span>
+                    </div>
+                    <div class="donut-wrapper">
+                        <div class="donut-chart" style="--p: 75;">
+                            <img src="media/python.svg" alt="Python" class="donut-icon">
                         </div>
+                        <span class="donut-label-pct">75%</span>
+                        <span class="donut-label-name">Python</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- 03: Technical Proficiency (Donut Charts) -->
-                <div class="about-block full-width">
-                    <h3>03 // System Analytics (Proficiency)</h3>
-                    <div class="donuts-container">
-                        <div class="donut-wrapper">
-                            <div class="donut-chart" style="--p: 85;">
-                                <span class="donut-inner">85%</span>
-                            </div>
-                            <span class="donut-label">C</span>
+            <!-- Category: Frontend -->
+            <div class="skill-category reveal-on-scroll">
+                <h3>Frontend</h3>
+                <div class="donuts-container">
+                    <div class="donut-wrapper">
+                        <div class="donut-chart" style="--p: 90;">
+                            <img src="media/html.svg" alt="HTML" class="donut-icon">
                         </div>
-                        <div class="donut-wrapper">
-                            <div class="donut-chart" style="--p: 75;">
-                                <span class="donut-inner">75%</span>
-                            </div>
-                            <span class="donut-label">Python</span>
-                        </div>
-                        <div class="donut-wrapper">
-                            <div class="donut-chart" style="--p: 60;">
-                                <span class="donut-inner">60%</span>
-                            </div>
-                            <span class="donut-label">Git / Github</span>
-                        </div>
-                        <div class="donut-wrapper">
-                            <div class="donut-chart" style="--p: 80;">
-                                <span class="donut-inner">80%</span>
-                            </div>
-                            <span class="donut-label">Problem Solving</span>
-                        </div>
+                        <span class="donut-label-pct">90%</span>
+                        <span class="donut-label-name">HTML</span>
                     </div>
-
-                    <div class="skills-grid">
-                        <span class="skill-pill">C</span>
-                        <span class="skill-pill">Python</span>
-                        <span class="skill-pill">Git / GitHub</span>
+                    <div class="donut-wrapper">
+                        <div class="donut-chart" style="--p: 85;">
+                            <img src="media/css.svg" alt="CSS" class="donut-icon">
+                        </div>
+                        <span class="donut-label-pct">85%</span>
+                        <span class="donut-label-name">CSS</span>
+                    </div>
+                    <div class="donut-wrapper">
+                        <div class="donut-chart" style="--p: 70;">
+                            <img src="media/javascript.svg" alt="JavaScript" class="donut-icon">
+                        </div>
+                        <span class="donut-label-pct">70%</span>
+                        <span class="donut-label-name">JavaScript</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- 04: Academic Matrix -->
-                <div class="about-block">
-                    <h3>04 // Academic Matrix</h3>
-                    <p class="section-desc" style="font-size: 0.9rem;">
-                        Proud graduate of Harvard's <strong>CS50</strong>, where I built a solid foundation in computer science, algorithms, and memory management. I just started tackling the full-stack curriculum at <strong>The Odin Project</strong> to master modern web development.
-                    </p>
+            <!-- Category: Backend -->
+            <div class="skill-category reveal-on-scroll">
+                <h3>Backend</h3>
+                <div class="donuts-container">
+                    <div class="donut-wrapper">
+                        <div class="donut-chart" style="--p: 60;">
+                            <img src="media/sql.svg" alt="SQL" class="donut-icon">
+                        </div>
+                        <span class="donut-label-pct">60%</span>
+                        <span class="donut-label-name">SQL</span>
+                    </div>
                 </div>
+            </div>
 
-                <!-- 05: Active Operations -->
-                <div class="about-block">
-                    <h3>05 // Active Operations</h3>
-                    <ul class="active-projects-list">
-                        <li>
-                            <strong>stemnet.gr:</strong> My current main project and primary focus. <br>
-                            <a href="https://github.com/prodevmod/STEMNet.gr" target="_blank" class="repo-link">
-                                <img src="media/repo.svg" alt="Repo" style="width: 14px; vertical-align: middle; margin-right: 4px;"> [ View Repository ]
-                            </a>
-                        </li>
-                        <li><strong>The Odin Project:</strong> Building web applications and leveling up my JavaScript.</li>
-                        <li><strong>CS50:</strong> Successfully completed the rigorous introduction to computer science.</li>
-                    </ul>
+            <!-- Category: Tools -->
+            <div class="skill-category reveal-on-scroll">
+                <h3>Tools</h3>
+                <div class="donuts-container">
+                    <div class="donut-wrapper">
+                        <div class="donut-chart" style="--p: 80;">
+                            <img src="media/git.svg" alt="Git" class="donut-icon">
+                        </div>
+                        <span class="donut-label-pct">80%</span>
+                        <span class="donut-label-name">Git</span>
+                    </div>
+                    <div class="donut-wrapper">
+                        <div class="donut-chart" style="--p: 80;">
+                            <img src="media/github.svg" alt="GitHub" class="donut-icon">
+                        </div>
+                        <span class="donut-label-pct">80%</span>
+                        <span class="donut-label-name">GitHub</span>
+                    </div>
+                    <div class="donut-wrapper">
+                        <div class="donut-chart" style="--p: 90;">
+                            <img src="media/vscode.svg" alt="VS Code" class="donut-icon">
+                        </div>
+                        <span class="donut-label-pct">90%</span>
+                        <span class="donut-label-name">VS Code</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contacts" class="portfolio-section">
-            <div class="player-header">
+        <!-- 05: CONTACT SECTION -->
+        <section id="contacts" class="portfolio-section snap-section">
+            <div class="player-header reveal-on-scroll">
                 <span class="pulse-dot"></span>
                 <span class="player-title">ESTABLISH_CONNECTION</span>
             </div>
-            <h2>Contact & Channels</h2>
-            <p class="tech-tag">Reach out across the network</p>
+            <h2 class="reveal-on-scroll">Contact & Channels</h2>
+            <p class="tech-tag reveal-on-scroll">Reach out across the network</p>
             
-            <div class="social-icons-row">
+            <div class="social-icons-row reveal-on-scroll">
                 <a href="https://www.youtube.com/@CodingTode" target="_blank" class="social-icon-link">
                     <img src="media/youtube.svg" alt="YouTube" class="network-icon">
                 </a>
@@ -163,5 +295,32 @@
     </main>
 
     <script src="script.js"></script>
+    
+    <!-- FADE-IN ON SCROLL SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null, // use the viewport
+                rootMargin: '0px',
+                threshold: 0.1 // trigger when 10% of item is visible
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            
+            // Target all elements with the reveal class
+            const targets = document.querySelectorAll('.reveal-on-scroll');
+            targets.forEach((target) => {
+                observer.observe(target);
+            });
+        });
+    </script>
 </body>
 </html>
