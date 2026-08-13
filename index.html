@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Sekuya&display=swap" rel="stylesheet">
 
-    <!-- INLINE CSS FOR SCROLL REVEAL, TEXT CONSTRAINTS, & UNIFIED CYBERPUNK BOXES -->
+    <!-- INLINE CSS FOR SCROLL REVEAL, TEXT CONSTRAINTS, UNIFIED CYBERPUNK BOXES & RADIO SCROLLER -->
     <style>
         /* Layout constraint for better readability */
         .content-constrained {
@@ -62,15 +62,9 @@
         
         /* Subtle Color-shifting Glow for Main Headers */
         @keyframes headerGlow {
-            0% {
-                text-shadow: 0 0 10px rgba(0, 255, 255, 0.2), 0 0 20px rgba(0, 255, 255, 0.1);
-            }
-            50% {
-                text-shadow: 0 0 15px rgba(138, 43, 226, 0.4), 0 0 30px rgba(0, 255, 255, 0.2);
-            }
-            100% {
-                text-shadow: 0 0 10px rgba(0, 255, 255, 0.2), 0 0 20px rgba(0, 255, 255, 0.1);
-            }
+            0% { text-shadow: 0 0 10px rgba(0, 255, 255, 0.2), 0 0 20px rgba(0, 255, 255, 0.1); }
+            50% { text-shadow: 0 0 15px rgba(138, 43, 226, 0.4), 0 0 30px rgba(0, 255, 255, 0.2); }
+            100% { text-shadow: 0 0 10px rgba(0, 255, 255, 0.2), 0 0 20px rgba(0, 255, 255, 0.1); }
         }
 
         .hero-main-title, .section-title {
@@ -177,17 +171,81 @@
         }
 
         @keyframes pulseWave {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7);
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 255, 255, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 255, 0); }
+        }
+
+        /* --- RADIO SCROLLER STYLES --- */
+        
+        .hero-name {
+            margin-bottom: 12px; /* Space between name and radio scroller */
+        }
+
+        /* The Outer Frame */
+        .radio-tag {
+            margin: 0 auto 30px auto; /* Centers the tag and adds space below it before description */
+            height: 40px;
+            width: 100%;
+            max-width: 320px;
+            border: 2px solid #8a2be2; /* Pulse Violet */
+            border-radius: 10px;
+            background: rgba(14, 42, 71, 0.85); /* Dark background */
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.25), inset 0 0 10px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* The Scrolling Window with Faded Edges */
+        .radio-window {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            mask-image: linear-gradient(
+                to right,
+                transparent 0%,
+                black 10%,
+                black 90%,
+                transparent 100%
+            );
+            -webkit-mask-image: linear-gradient(
+                to right,
+                transparent 0%,
+                black 10%,
+                black 90%,
+                transparent 100%
+            );
+        }
+
+        /* The Typography and Animation */
+        #radioText {
+            white-space: nowrap;
+            display: inline-block;
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #00ffff; /* Cyan */
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px #00ffff;
+        }
+
+        /* The JS-triggered Animation */
+        @keyframes slideIn {
+            from {
+                transform: translateX(40px);
+                opacity: 0;
             }
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 8px rgba(0, 255, 255, 0);
-            }
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(0, 255, 255, 0);
+            to {
+                transform: translateX(0);
+                opacity: 1;
             }
         }
     </style>
@@ -223,11 +281,15 @@
                 <span class="pulse-dot"></span>
                 <span class="player-title">SYSTEM_CORE // INITIALIZE</span>
             </div>
+            
             <h1 class="hero-main-title reveal-on-scroll">Hi, Alex here</h1>
             <h2 class="hero-name reveal-on-scroll">Rosario Alexandros Morabito</h2>
             
+            <!-- NEW DYNAMIC RADIO SCROLLER -->
             <div class="radio-tag reveal-on-scroll">
-                <span id="radioText"></span>
+                <div class="radio-window">
+                    <span id="radioText"></span>
+                </div>
             </div>
 
             <div class="reveal-on-scroll content-constrained terminal-box">
