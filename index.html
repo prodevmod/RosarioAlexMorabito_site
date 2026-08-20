@@ -209,6 +209,52 @@
 <div class="hub-hint-badge">
     Press <strong>H</strong> for Hub
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const peekingNode = document.querySelector('.peeking-node-img');
+    
+    if (!peekingNode) return;
+
+    peekingNode.addEventListener('click', (e) => {
+        // Prevent default behavior if wrapped in a link
+        e.preventDefault(); 
+
+        // Get the click/node coordinates
+        const rect = peekingNode.getBoundingClientRect();
+        const startX = rect.left + rect.width / 2;
+        const startY = rect.top + rect.height / 2;
+
+        // Number of mini versions to drop
+        const count = 15;
+
+        for (let i = 0; i < count; i++) {
+            const mini = document.createElement('img');
+            mini.src = peekingNode.src;
+            mini.classList.add('mini-falling-avatar');
+            
+            // Set initial position near the center of the peeking node
+            mini.style.left = `${startX - 20}px`;
+            mini.style.top = `${startY - 20}px`;
+
+            // Randomize horizontal scatter distance and rotation
+            const randomX = (Math.random() - 0.5) * 400; // Scatter left or right up to 200px
+            const randomRotation = (Math.random() - 0.5) * 720; // Spin up to 2 full rotations
+            const duration = 0.8 + Math.random() * 0.8; // Vary fall speed between 0.8s and 1.6s
+
+            mini.style.setProperty('--rand-x', `${randomX}px`);
+            mini.style.setProperty('--rand-rot', `${randomRotation}deg`);
+            mini.style.setProperty('--fall-duration', `${duration}s`);
+
+            document.body.appendChild(mini);
+
+            // Clean up the DOM element after the animation finishes
+            setTimeout(() => {
+                mini.remove();
+            }, duration * 1000);
+        }
+    });
+});</script>
 <script src="script.js"></script>
 </body>
 </html>

@@ -460,10 +460,16 @@ h1, h2, h3, h4, h5, h6 {
 .walking-avatar-container {
     position: fixed;
     bottom: 30px;
-    left: -150px;
+    left: 50px;
     z-index: 100;
-    pointer-events: none;
-    animation: glideAcross 15s linear infinite;
+    cursor: grab;
+    pointer-events: auto;
+    touch-action: none;
+    /* Animation removed; JS handles the continuous walking loop */
+}
+
+.walking-avatar-container:active {
+    cursor: grabbing;
 }
 
 .pixel-avatar {
@@ -600,4 +606,35 @@ img[src$=".svg"]:hover,
 
 .peeking-node-img:hover {
     transform: translateX(-50%) translateY(-45px);
+}
+
+/* Mini avatar elements spawned on click */
+.mini-falling-avatar {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    pointer-events: none;
+    z-index: 9999;
+    /* Longer duration (1.8s to 2.6s) for a slower, floatier fall */
+    animation: organicGravity var(--fall-duration, 2.2s) cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+
+@keyframes organicGravity {
+    0% {
+        transform: translate(0, 0) scale(0.5) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        /* Shoots up higher and spreads significantly wider across the width */
+        transform: translate(calc(var(--rand-x) * 0.8), -180px) scale(1.1) rotate(calc(var(--rand-rot) * 0.3));
+        opacity: 1;
+    }
+    100% {
+        /* Continues falling smoothly down past the screen with no mid-air stall */
+        transform: translate(var(--rand-x), 110vh) scale(0.9) rotate(var(--rand-rot));
+        opacity: 0;
+    }
 }
