@@ -510,3 +510,81 @@ html, body {
     box-sizing: border-box;
     padding: 25px 10% !important; /* 15% padding on left & right keeps text inside the screen frame */
 }
+.social-icon-link {
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+.social-icons-row a {
+    text-decoration: none !important;
+}
+/* Fixed full-screen overlay for the Navigation Hub */
+#hub {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.75); /* Dark semi-transparent backdrop */
+    backdrop-filter: blur(8px);       /* Blurs everything behind the hub */
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    visibility: hidden;
+}
+
+/* Shown state when activated */
+#hub.active {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+/* Optional: Pause or blur main background contents */
+.content-wrapper.hub-open > section:not(#hub) {
+    filter: blur(4px);
+    transition: filter 0.3s ease;
+}
+.hub-hint-badge {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 8px 12px;
+    font-family: inherit; /* Matches your portfolio font */
+    font-size: 0.75rem;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    z-index: 998; /* Sits below the hub overlay (9999) */
+    pointer-events: none; /* Allows clicks to pass through */
+    box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.hub-hint-badge strong {
+    color: #ffcc00; /* Highlights the 'H' key for visibility */
+}
+/* Make all icons, node images, and avatars solid black and pixelated */
+/* 1. Turn SVGs and static PNG pixel nodes black by default */
+img[src$=".svg"], 
+.network-icon, 
+.control-icon, 
+.pixel-img {
+    filter: brightness(0);
+    transition: filter 0.2s ease; /* Optional: adds a nice smooth snap on hover */
+}
+
+/* 2. Restore original colors on hover for ALL of them */
+img[src$=".svg"]:hover, 
+.network-icon:hover, 
+.control-icon:hover, 
+.pixel-img:hover {
+    filter: none; /* Brings back the true original colors */
+}
