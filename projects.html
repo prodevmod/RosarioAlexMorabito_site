@@ -6,128 +6,95 @@
     <title>Alex's Portfolio - Projects</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="media/favicon.svg">
-    
-    <!-- Added Vinyl Styling -->
-    <style>
-        .project-artwork-box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0;
-        }
-
-        .project-img {
-            width: 200px;
-            height: 200px;
-            /* Creates the Vinyl Shape */
-            border-radius: 50%;
-            object-fit: cover;
-            /* Adds a slight dark border and shadow for depth */
-            border: 4px solid #1a1a1a;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            transition: all 0.3s ease;
-        }
-
-        /* The spinning animation for when the project is "playing" */
-        @keyframes spin-vinyl {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .playing-vinyl {
-            animation: spin-vinyl 4s linear infinite;
-        }
-    </style>
 </head>
 <body>
 
-    <header id="navbar">
-        <nav class="nav-container">
-            <div class="nav-links">
-                <a href="index.html#aboutme" class="nav-link">
-                    <img src="media/about.svg" alt="About Me" class="nav-icon"> About Me
-                </a>
-                <a href="projects.html" class="nav-link active">
-                    <img src="media/projects.svg" alt="Projects" class="nav-icon"> Projects
-                </a>
-                <a href="blogs.html" class="nav-link">
-                    <img src="media/blogs.svg" alt="Blogs" class="nav-icon"> Blogs
-                </a>
-                <a href="index.html#contacts" class="nav-link">
-                    <img src="media/contact.svg" alt="Contact" class="nav-icon"> Contact
-                </a>
-            </div>
-        </nav>
-    </header>
-
     <main class="content-wrapper">
-        <div class="spotify-player-container">
-            
-            <div id="topTrackCounter" class="top-track-counter">Track: 1/4</div>
+        
+        <!-- PROJECT SELECTOR SECTION -->
+        <section class="full-screen-section">
+            <div class="terminal-box" style="width: 95%; max-width: 900px; padding: 40px 60px; min-height: 550px;">
+                
+                <div id="topTrackCounter" class="top-track-counter" style="font-size: 1.2rem;">PROJECT: 1/4</div>
 
-            <div class="player-header">
-                <span class="pulse-dot"></span>
-                <span class="player-title">NOW BROWSING: PROJECTS_DECK</span>
+                <div class="player-header">
+                    <span class="pulse-dot"></span>
+                    <span class="player-title">ACTIVE_PROJECT_DECK // SELECTION_MODE</span>
+                </div>
+
+                <div class="project-artwork-box">
+                    <img id="projectImage" src="media/code.png" alt="Project Preview" class="project-img">
+                </div>
+
+                <div class="track-info-section">
+                    <h2 id="projectTitle" style="font-size: 2.2rem;">Project Title</h2>
+                    <p id="projectTech" class="tech-tag" style="font-size: 1.2rem;">Tech Stack</p>
+                </div>
+
+                <div class="player-controls">
+                    <button id="prevBtn" class="control-btn" aria-label="Previous Project">
+                        <img src="media/prev.svg" alt="Previous" class="control-icon">
+                    </button>
+                    <!-- Play button replaced with Repo link -->
+                    <a id="repoLink" href="#" target="_blank" class="control-btn main-play" aria-label="View Repository">
+                        <img src="media/repo.svg" alt="Repository" class="control-icon">
+                    </a>
+                    <button id="skipBtn" class="control-btn" aria-label="Next Project">
+                        <img src="media/skip.svg" alt="Next" class="control-icon">
+                    </button>
+                </div>
+
             </div>
+            <div class="scroll-indicator">HUB AHEAD ▼</div>
+        </section>
 
-            <div class="project-artwork-box">
-                <!-- Image defaults to code.png but will dynamically update -->
-                <img id="projectImage" src="media/code.png" alt="Project Preview" class="project-img">
-            </div>
-
-            <div class="track-info-section">
-                <h2 id="projectTitle">Project Title</h2>
-                <p id="projectTech" class="tech-tag">HTML / CSS / JavaScript</p>
-            </div>
-
-            <div class="player-controls">
-                <button id="prevBtn" class="control-btn" aria-label="Previous Project">
-                    <img src="media/prev.svg" alt="Previous" class="control-icon">
-                </button>
-                <button id="playPauseBtn" class="control-btn main-play" aria-label="Play / Pause">
-                    <img id="playPauseIcon" src="media/play.svg" alt="Play/Pause" class="control-icon">
-                </button>
-                <button id="skipBtn" class="control-btn" aria-label="Next Project">
-                    <img src="media/skip.svg" alt="Skip" class="control-icon">
-                </button>
-            </div>
-
-            <div id="expandedInfo" class="expanded-info-box hidden">
-                <h3>Project Details</h3>
-                <p id="projectDesc">Detailed description of the project architecture, features, and challenges overcome will appear here.</p>
-                <a id="projectLink" href="#" target="_blank" class="cyber-icon-btn" aria-label="View Repository">
-                    <img src="media/repo.svg" alt="Repository" class="control-icon">
+        <!-- UNIVERSAL HUB SECTION -->
+        <section class="full-screen-section hub-container">
+            <h2 class="hub-heading">Navigation Hub</h2>
+            <div class="scattered-grid">
+                <a href="index.html#qualifications" class="pixel-node node-qual">
+                    <img src="media/node-qualifications.png" alt="Qualifications" class="pixel-img">
+                    <span class="node-label">Qualifications</span>
+                </a>
+                <a href="projects.html" class="pixel-node node-proj">
+                    <img src="media/node-projects.png" alt="Projects" class="pixel-img">
+                    <span class="node-label">Projects</span>
+                </a>
+                <a href="index.html#aboutme" class="pixel-node node-about">
+                    <img src="media/node-me.png" alt="About Me" class="pixel-img">
+                    <span class="node-label">About Me</span>
+                </a>
+                <a href="blog.html" class="pixel-node node-blog">
+                    <img src="media/node-blog.png" alt="Blog" class="pixel-img">
+                    <span class="node-label">Blog</span>
+                </a>
+                <a href="index.html#achievements" class="pixel-node node-contact">
+                    <img src="media/node-contact.png" alt="Contact" class="pixel-img">
+                    <span class="node-label">Achievements</span>
                 </a>
             </div>
-        </div>
+        </section>
+
     </main>
 
 <script>
-    // ⚠️ ENTER YOUR EXACT GITHUB USERNAME HERE
     const githubUsername = "prodevmod"; 
 
     let projects = [];
     let currentIndex = 0;
-    let isExpanded = false;
 
-    // UI Elements
     const projectImage = document.getElementById('projectImage');
     const projectTitle = document.getElementById('projectTitle');
     const projectTech = document.getElementById('projectTech');
-    const projectDesc = document.getElementById('projectDesc');
-    const projectLink = document.getElementById('projectLink');
+    const repoLink = document.getElementById('repoLink'); // Updated reference
     const topTrackCounter = document.getElementById('topTrackCounter');
     
     const prevBtn = document.getElementById('prevBtn');
     const skipBtn = document.getElementById('skipBtn');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const playPauseIcon = document.getElementById('playPauseIcon');
-    const expandedInfo = document.getElementById('expandedInfo');
 
-    // 1. Fetch repositories from GitHub
     async function loadGitHubProjects() {
-        projectTitle.textContent = "INITIALIZING...";
-        projectTech.textContent = "Fetching GitHub API...";
+        projectTitle.textContent = "LOADING...";
+        projectTech.textContent = "Querying GitHub API...";
 
         try {
             const response = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated`);
@@ -137,8 +104,7 @@
 
             projects = originalRepos.map(repo => ({
                 title: repo.name,
-                tech: repo.language ? repo.language : "Multi-Language / Text",
-                fallbackDesc: repo.description || "No description provided.",
+                tech: repo.language ? repo.language : "Multi-Language / Script",
                 link: repo.html_url,
                 defaultBranch: repo.default_branch
             }));
@@ -146,7 +112,7 @@
             if (projects.length > 0) {
                 updatePlayer();
             } else {
-                projectTitle.textContent = "NO DATA FOUND";
+                projectTitle.textContent = "NO PROJECTS FOUND";
                 projectTech.textContent = "Check username.";
             }
 
@@ -157,11 +123,8 @@
         }
     }
 
-    // 2. Fetch the README for the current project and extract image + text
-    async function fetchReadme(repoName, branch, fallbackText) {
-        projectDesc.textContent = "Loading README data...";
-        
-        // Reset image to default while fetching
+    // Still fetches the README just to find a thumbnail image
+    async function fetchReadmeImage(repoName, branch) {
         projectImage.src = "media/code.png"; 
 
         try {
@@ -171,8 +134,6 @@
             if (response.ok) {
                 let text = await response.text();
                 
-                // --- NEW: EXTRACT IMAGE ---
-                // Looks for Markdown format ![alt](url) or HTML format <img src="url">
                 const mdImgMatch = text.match(/!\[.*?\]\((.*?)\)/);
                 const htmlImgMatch = text.match(/<img[^>]+src=["'](.*?)["']/i);
                 
@@ -184,37 +145,18 @@
                     foundImageUrl = htmlImgMatch[1];
                 }
 
-                // If a relative path is used in the repo, convert it to an absolute raw github URL
                 if (foundImageUrl !== "media/code.png" && !foundImageUrl.startsWith("http")) {
-                    foundImageUrl = foundImageUrl.replace(/^\.?\//, ''); // removes ./ or / at the start
+                    foundImageUrl = foundImageUrl.replace(/^\.?\//, '');
                     foundImageUrl = `https://raw.githubusercontent.com/${githubUsername}/${repoName}/${branch}/${foundImageUrl}`;
                 }
                 
                 projectImage.src = foundImageUrl;
-
-                // --- THE UPGRADED CLEANER ---
-                let cleanText = text
-                    .replace(/<[^>]*>/g, '')          
-                    .replace(/!\[.*?\]\(.*?\)/g, '')   
-                    .replace(/https?:\/\/[^\s]+/g, '') 
-                    .replace(/[#*`_>\[\]()]/g, '')     
-                    .replace(/\s+/g, ' ')              
-                    .trim();
-                
-                if (cleanText.length === 0) {
-                    cleanText = fallbackText;
-                }
-
-                projectDesc.textContent = cleanText.substring(0, 250) + (cleanText.length > 250 ? '...' : '');
-            } else {
-                projectDesc.textContent = fallbackText;
             }
         } catch (e) {
-            projectDesc.textContent = fallbackText;
+            console.error("No README image found.");
         }
     }
 
-    // 3. Update the Player UI
     function updatePlayer() {
         if (projects.length === 0) return;
         
@@ -222,21 +164,15 @@
         
         projectTitle.textContent = current.title.replace(/-/g, ' ').toUpperCase(); 
         projectTech.textContent = current.tech;
-        projectLink.href = current.link;
-        topTrackCounter.textContent = `Track: ${currentIndex + 1}/${projects.length}`;
+        
+        // Dynamically assign the link to the middle button
+        repoLink.href = current.link;
+        
+        topTrackCounter.textContent = `PROJECT: ${currentIndex + 1}/${projects.length}`;
 
-        // Reset expanded state on track change
-        if (isExpanded) {
-            isExpanded = false;
-            expandedInfo.classList.add('hidden');
-            playPauseIcon.src = "media/play.svg";
-            projectImage.classList.remove('playing-vinyl');
-        }
-
-        fetchReadme(current.title, current.defaultBranch, current.fallbackDesc);
+        fetchReadmeImage(current.title, current.defaultBranch);
     }
 
-    // Navigation Controls
     skipBtn.addEventListener('click', () => {
         if (projects.length === 0) return;
         currentIndex = (currentIndex + 1) % projects.length;
@@ -249,23 +185,7 @@
         updatePlayer();
     });
 
-    // Expand / Collapse Info & Spin Vinyl
-    playPauseBtn.addEventListener('click', () => {
-        isExpanded = !isExpanded;
-        if (isExpanded) {
-            expandedInfo.classList.remove('hidden');
-            playPauseIcon.src = "media/pause.svg";
-            projectImage.classList.add('playing-vinyl'); // Start spinning
-        } else {
-            expandedInfo.classList.add('hidden');
-            playPauseIcon.src = "media/play.svg";
-            projectImage.classList.remove('playing-vinyl'); // Stop spinning
-        }
-    });
-
-    // Boot up the system!
     loadGitHubProjects();
 </script>
-    <script src="script.js"></script>
 </body>
 </html>

@@ -4,41 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gender Bias in STEM</title>
-    <!-- Note the updated paths: ../ to go up one directory -->
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" type="image/svg+xml" href="../media/favicon.svg">
 </head>
 <body>
 
-    <header id="navbar">
-        <nav class="nav-container">
-            <div class="nav-links">
-                <a href="../index.html#aboutme" class="nav-link">
-                    <img src="../media/about.svg" alt="About Me" class="nav-icon"> About Me
-                </a>
-                <a href="../projects.html" class="nav-link">
-                    <img src="../media/projects.svg" alt="Projects" class="nav-icon"> Projects
-                </a>
-                <a href="../blogs.html" class="nav-link active">
-                    <img src="../media/blogs.svg" alt="Blogs" class="nav-icon"> Blogs
-                </a>
-                <a href="../index.html#contacts" class="nav-link">
-                    <img src="../media/contact.svg" alt="Contact" class="nav-icon"> Contact
-                </a>
-            </div>
-        </nav>
-    </header>
-
     <main class="content-wrapper">
-        <section class="portfolio-section">
-            
-            <div class="section-card">
+        
+        <!-- ARTICLE SECTION -->
+        <section class="full-screen-section">
+            <div class="portfolio-section">
                 <div class="player-header">
-                    <a href="../blogs.html" style="color: inherit; text-decoration: none; margin-right: 15px; border-right: 1px solid rgba(255,255,255,0.3); padding-right: 15px; font-size: 0.9rem;">&larr; Back</a>
+                    <a href="../blog.html" style="color: inherit; text-decoration: none; margin-right: 15px; border-right: 1px solid #000; padding-right: 15px; font-size: 0.9rem;">&larr; Back</a>
                     <span class="pulse-dot"></span>
                     <span class="player-title">DEVELOPER_TRANSMISSIONS // ENTRY_02</span>
                 </div>
                 <h2>Gender Bias: Why It Is Caused and How We Will Solve It</h2>
+                <p class="tech-tag">Thoughts on inclusivity, stereotypes, and empowering women in STEM</p>
+                
+                <div class="blog-content" style="margin-top: 2rem; line-height: 1.6;">
+<h2>Gender Bias: Why It Is Caused and How We Will Solve It</h2>
                 <p class="tech-tag">Thoughts on inclusivity, stereotypes, and empowering women in STEM</p>
                 
                 <div class="blog-content" style="margin-top: 2rem; line-height: 1.6;">
@@ -70,12 +55,38 @@
                         So, go on. Start your girls only club or organize a girls' hackathon to empower the STEM girlies in your local community! The tools are out there, and the change starts with us.
                     </p>
 
-                </div>
             </div>
-
+            <div class="scroll-indicator">HUB AHEAD ▼</div>
         </section>
+
+        <!-- UNIVERSAL HUB SECTION (With ../ paths) -->
+        <section class="full-screen-section hub-container">
+            <h2 class="hub-heading">Navigation Hub</h2>
+            <div class="scattered-grid">
+                <a href="../index.html#qualifications" class="pixel-node node-qual">
+                    <img src="../media/node-qualifications.png" alt="Qualifications" class="pixel-img">
+                    <span class="node-label">Qualifications</span>
+                </a>
+                <a href="../projects.html" class="pixel-node node-proj">
+                    <img src="../media/node-projects.png" alt="Projects" class="pixel-img">
+                    <span class="node-label">Projects</span>
+                </a>
+                <a href="../index.html#aboutme" class="pixel-node node-about">
+                    <img src="../media/node-me.png" alt="About Me" class="pixel-img">
+                    <span class="node-label">About Me</span>
+                </a>
+                <a href="../blog.html" class="pixel-node node-blog">
+                    <img src="../media/node-blog.png" alt="Blog" class="pixel-img">
+                    <span class="node-label">Blog</span>
+                </a>
+                <a href="../index.html#achievements" class="pixel-node node-contact">
+                    <img src="../media/node-contact.png" alt="Contact" class="pixel-img">
+                    <span class="node-label">Achievements</span>
+                </a>
+            </div>
+        </section>
+
     </main>
 
-    <script src="../script.js"></script>
 </body>
 </html>
