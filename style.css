@@ -25,15 +25,20 @@ body {
     image-rendering: crisp-edges;
     color: #000000 !important;
     font-family: 'Pixelify Sans', monospace, sans-serif;
-    font-size: 1.15rem;
+    font-size: 2.0rem; 
     height: 100vh;
     overflow-x: hidden;
     position: relative;
+    scroll-snap-type: y mandatory;
+    scroll-snap-stop: always;
 }
 
 .content-wrapper {
     width: 100%;
     height: 100%;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
 }
 
 .full-screen-section {
@@ -55,33 +60,34 @@ body {
 /* Portfolio Section / Scrollable Rectangles */
 .portfolio-section {
     background-color: #FFFFFF;
-    border: 3px solid #000000;
-    width: 90%;
-    max-width: 900px;
-    height: auto; /* Flexes based on content */
-    max-height: 82vh;
-    padding: 35px 10%; /* 10% distance for text on left/right */
+    border: 4px solid #000000;
+    width: 88%;
+    max-width: 1400px;
+    height: auto;
+    max-height: 88vh;
+    padding: 5% !important;
     box-sizing: border-box;
     margin: auto;
-    overflow-y: auto; /* Makes it a scrollable rectangle */
+    overflow-y: auto;
     scroll-snap-align: center;
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Scroll Down Indicator (Bottom Right) */
 .scroll-indicator {
     position: absolute;
-    bottom: 15px;
-    right: 20px;
-    font-size: 0.95rem;
+    bottom: 20px;
+    right: 25px;
+    font-size: 1.35rem;
     font-weight: bold;
     color: #FFFFFF !important;
     background: rgba(0, 0, 0, 0.75);
-    padding: 6px 12px;
-    border: 2px solid #FFFFFF;
+    padding: 8px 16px;
+    border: 3px solid #FFFFFF;
     letter-spacing: 1px;
     animation: bounceIndicator 1.5s infinite;
     pointer-events: none;
@@ -90,30 +96,31 @@ body {
 
 @keyframes bounceIndicator {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(5px); }
+    50% { transform: translateY(8px); }
 }
 
 .player-header {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 1.05rem;
+    gap: 12px;
+    font-size: 1.5rem;
     letter-spacing: 1px;
     color: #000000;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-weight: bold;
+    width: 100%;
 }
 
 .pulse-dot {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     background-color: #000000;
     border-radius: 0;
 }
 
 .tech-tag {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: #000000;
 }
 
@@ -122,36 +129,36 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 .project-img {
-    width: 220px;
-    height: 220px;
+    width: 240px;
+    height: 240px;
     object-fit: cover;
-    border: 4px solid #000000;
+    border: 6px solid #000000;
     box-shadow: 0 6px 15px rgba(0,0,0,0.4);
     background: #FFFFFF;
 }
 
 .track-info-section {
     text-align: center;
-    margin: 15px 0 10px 0;
+    margin: 10px 0;
     width: 100%;
 }
 
 .track-info-section h2 {
     margin: 0 0 5px 0;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     color: #000000;
 }
 
 .top-track-counter {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: #000000;
     letter-spacing: 1px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .player-controls {
@@ -159,14 +166,14 @@ body {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .control-btn {
     background: #FFFFFF;
-    border: 2px solid #000000;
-    width: 55px;
-    height: 55px;
+    border: 3px solid #000000;
+    width: 65px;
+    height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -174,20 +181,20 @@ body {
 }
 
 .control-btn.main-play {
-    width: 65px;
-    height: 65px;
+    width: 75px;
+    height: 75px;
 }
 
 .control-icon {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
 }
 
 .expanded-info-box {
     margin-top: 15px;
     width: 100%;
     padding-top: 12px;
-    border-top: 1px dashed #000000;
+    border-top: 2px dashed #000000;
     text-align: left;
 }
 
@@ -200,59 +207,65 @@ body {
     align-items: center;
     justify-content: center;
     background: #FFFFFF;
-    border: 2px solid #000000;
-    width: 48px;
-    height: 48px;
+    border: 3px solid #000000;
+    width: 70px;
+    height: 70px;
     text-decoration: none;
-    margin-top: 10px;
+    margin-top: 15px;
+}
+
+.cyber-icon-btn img,
+.cyber-icon-btn svg {
+    width: 40px !important;
+    height: 40px !important;
 }
 
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 20px;
+    margin-top: 25px;
 }
 
 .about-block {
     background: #FFFFFF;
-    border: 1px solid #000000;
-    padding: 18px;
+    border: 2px solid #000000;
+    padding: 25px;
 }
 
 .about-block h3 {
     color: #000000;
     margin-top: 0;
-    font-size: 1.2rem;
-    border-bottom: 1px dashed #000000;
-    padding-bottom: 6px;
-    margin-bottom: 10px;
+    font-size: 1.9rem;
+    border-bottom: 2px dashed #000000;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .pixel-healthbar-container {
     width: 100%;
-    margin: 10px 0;
+    margin: 15px 0;
     text-align: left;
 }
 
 .healthbar-label-row {
     display: flex;
     justify-content: space-between;
-    font-size: 1.05rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     color: #000000;
 }
 
 .pixel-healthbar {
     width: 100%;
-    height: 24px;
+    height: 35px;
     background-color: #DDDDDD;
-    border: 3px solid #000000;
+    border: 4px solid #000000;
     position: relative;
-    padding: 2px;
+    padding: 3px;
     box-sizing: border-box;
 }
 
@@ -264,39 +277,39 @@ body {
         #000000 0%, #000000 78%, 
         transparent 78%, transparent 100%
     );
-    background-size: 10px 100%;
+    background-size: 15px 100%;
     width: var(--health-pct, 50%);
 }
 
 .repo-link {
     color: #000000;
     text-decoration: underline;
-    font-size: 0.95rem;
+    font-size: 1.4rem;
     display: inline-block;
-    margin-top: 4px;
+    margin-top: 6px;
     font-weight: bold;
 }
 
 .btn {
     position: relative;
     overflow: hidden;
-    padding: 12px 24px;
-    border: 2px solid #000000;
+    padding: 18px 35px;
+    border: 3px solid #000000;
     color: #000000;
     background: #FFFFFF;
     text-decoration: none;
-    margin: 10px;
+    margin: 15px;
     display: inline-block;
     font-family: 'Pixelify Sans', monospace;
-    font-size: 1.15rem;
+    font-size: 1.7rem;
     font-weight: bold;
     transition: all 0.2s ease;
 }
 
 .btn:hover { 
     background: #F0F0F0; 
-    box-shadow: 3px 3px 0px #000000;
-    transform: translateY(-2px);
+    box-shadow: 4px 4px 0px #000000;
+    transform: translateY(-3px);
 }
 
 p, span, a, li {
@@ -311,73 +324,75 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .paragraph-spacing {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .section-title {
-    margin-bottom: 20px;
-    font-size: 2rem;
+    margin-bottom: 25px;
+    font-size: 3.2rem;
 }
 
-/* Master Terminal Box (Flexible Height with 10% side text distance) */
+/* Master Terminal Box */
 .terminal-box {
     position: relative;
     background-image: url('media/pixel-card.png');
-    background-size: 100% 100%;
+    background-size: 100% 100%; 
     background-repeat: no-repeat;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     border: none !important;
-    width: 80% !important;
-    max-width: 1100px !important;
-    height: auto; /* Flexes shorter or taller based on content */
-    max-height: 85vh; /* Caps height if content is too large */
-    padding: 35px 10% !important; /* Forces 10% spacing on left & right */
+    width: 90% !important;
+    max-width: 1350px !important; 
+    height: auto;
+    min-height: 600px;
+    max-height: 90vh;
+    padding: 5% 12% !important; /* Forces a safe 12% buffer on left/right so text never touches or crosses the black borders */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow-y: auto; /* Internal scroll if content exceeds max-height */
+    overflow-y: auto;
     box-sizing: border-box;
+    z-index: 2;
 }
 
 .hero-main-title {
-    font-size: 3.8rem;
-    margin: 10px 0;
+    font-size: 6.5rem;
+    margin: 15px 0;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 25px;
+    font-size: 2.7rem;
+    margin-bottom: 35px;
 }
 
-.system-tag, .tech-tag {
-    font-size: 1.05rem;
-    letter-spacing: 2px;
+.system-tag {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
 }
 
 .hub-container {
-    max-width: 950px;
+    max-width: 1400px;
     width: 100%;
 }
 
 .hub-heading {
-    margin-bottom: 30px;
-    font-size: 2.3rem;
-    letter-spacing: 2px;
+    margin-bottom: 40px;
+    font-size: 3.4rem;
+    letter-spacing: 3px;
     color: #FFFFFF !important;
-    text-shadow: 2px 2px #000000;
+    text-shadow: 3px 3px #000000;
 }
 
 /* 5-Node Hub Grid Layout */
 .scattered-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 35px;
     justify-items: center;
     align-items: center;
-    max-width: 700px;
+    max-width: 1050px;
     margin: 0 auto;
 }
 
@@ -390,113 +405,91 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pixel-img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 }
 
 .node-label {
-    font-size: 1.05rem;
+    font-size: 1.5rem;
     letter-spacing: 1px;
     color: #FFFFFF !important;
     background: rgba(0, 0, 0, 0.8);
-    padding: 2px 8px;
-    border: 1px solid #FFFFFF;
+    padding: 4px 12px;
+    border: 2px solid #FFFFFF;
 }
 
 .pixel-node:hover {
-    transform: scale(1.1) translateY(-4px);
+    transform: scale(1.1) translateY(-6px);
 }
 
 .node-qual { grid-column: 1; grid-row: 1; }
 .node-proj { grid-column: 3; grid-row: 1; }
-.node-about { grid-column: 2; grid-row: 2; transform: translateY(-5px); }
+.node-about { grid-column: 2; grid-row: 2; transform: translateY(-8px); }
 .node-blog { grid-column: 1; grid-row: 3; }
 .node-contact { grid-column: 3; grid-row: 3; }
 
 /* Universal Embedded Hub Section (For subpages) */
 .embedded-hub-section {
     background-color: #000000;
-    border: 4px solid #FFFFFF;
-    padding: 30px;
+    border: 6px solid #FFFFFF;
+    padding: 45px;
     width: 90%;
-    max-width: 800px;
+    max-width: 1200px;
     margin: auto;
     text-align: center;
 }
 
 .embedded-hub-section .hub-heading {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    font-size: 2.7rem;
+    margin-bottom: 30px;
 }
 
 .embedded-hub-section .scattered-grid {
-    max-width: 600px;
+    max-width: 900px;
 }
 
 .embedded-hub-section .pixel-img {
-    width: 75px;
-    height: 75px;
+    width: 110px;
+    height: 110px;
 }
 
 .walking-avatar-container {
     position: fixed;
-    bottom: 20px;
-    left: -100px;
+    bottom: 30px;
+    left: -150px;
     z-index: 100;
     pointer-events: none;
     animation: glideAcross 15s linear infinite;
 }
 
 .pixel-avatar {
-    width: 72px;
-    height: 72px;
+    width: 110px;
+    height: 110px;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
 
 @keyframes glideAcross {
-    0% { left: -100px; transform: scaleX(1); }
+    0% { left: -150px; transform: scaleX(1); }
     49.9% { left: 100vw; transform: scaleX(1); }
     50% { left: 100vw; transform: scaleX(-1); }
-    99.9% { left: -100px; transform: scaleX(-1); }
-    100% { left: -100px; transform: scaleX(1); }
+    99.9% { left: -150px; transform: scaleX(-1); }
+    100% { left: -150px; transform: scaleX(1); }
 }
 
-/* Fix Scroll Snap on HTML and Body */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    overflow-y: scroll;
-}
-
-.full-screen-section {
-    height: 100vh;
-    width: 100vw;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-}
-
+/* Explicitly targeted padding for About Me to keep text constrained safely inside the card frame */
 #aboutme .terminal-box {
-    max-width: 1100px !important;
-    padding: 24px 10% !important;
-    font-size: 0.7rem;
+    max-width: 1500px !important;
+    padding: 5% 12% !important; 
+    font-size: 1.35rem !important;
 }
 
 #aboutme .paragraph-spacing {
-    margin-bottom: 12px;
+    margin-bottom: 18px;
 }
 
 .social-icon-link {
@@ -537,24 +530,24 @@ html, body {
 }
 
 .content-wrapper.hub-open > section:not(#hub) {
-    filter: blur(4px);
+    filter: blur(6px);
     transition: filter 0.3s ease;
 }
 
 .hub-hint-badge {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 25px;
+    right: 25px;
     background: rgba(0, 0, 0, 0.85);
     color: #fff;
-    padding: 8px 12px;
+    padding: 12px 18px;
     font-family: inherit;
-    font-size: 0.75rem;
-    border: 2px solid #fff;
-    border-radius: 4px;
+    font-size: 1.1rem;
+    border: 3px solid #fff;
+    border-radius: 6px;
     z-index: 998;
     pointer-events: none;
-    box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.3);
+    box-shadow: 3px 3px 0px rgba(255, 255, 255, 0.3);
     letter-spacing: 0.5px;
 }
 
@@ -562,7 +555,7 @@ html, body {
     color: #ffcc00;
 }
 
-/* Make all icons, node images, and avatars solid black and pixelated */
+/* Make general network SVGs, node images, and avatars solid black and pixelated by default */
 img[src$=".svg"], 
 .network-icon, 
 .control-icon, 
@@ -585,33 +578,26 @@ img[src$=".svg"]:hover,
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px; /* Gives room for the image peeking out the top */
+    margin-top: 60px;
 }
 
-
-/* Peeking Node-Me Image with Jump Animation on Hover */
+/* Peeking Node-Me Image with Spring Jump Animation */
 .peeking-node-img {
     position: absolute;
-    top: -95px; 
+    top: -175px;
     left: 50%;
     transform: translateX(-50%);
-    width: 160px; 
-    height: 160px;
+    width: 315px;
+    height: 315px;
     object-fit: contain;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     z-index: 1; 
     filter: none;
-    cursor: pointer; /* Shows it's interactive */
-    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Gives it a springy jump feel */
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Jump Up Effect on Hover */
 .peeking-node-img:hover {
-    transform: translateX(-50%) translateY(-25px); /* Jumps up by 25px while keeping it centered horizontally */
-}
-/* Ensure the terminal box sits on top of the image */
-.hero-card-container .terminal-box {
-    position: relative;
-    z-index: 2;
+    transform: translateX(-50%) translateY(-45px);
 }
