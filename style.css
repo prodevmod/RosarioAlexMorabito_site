@@ -577,3 +577,41 @@ img[src$=".svg"]:hover,
 .pixel-img:hover {
     filter: none;
 }
+
+/* Container for the hero elements to manage layers */
+.hero-card-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px; /* Gives room for the image peeking out the top */
+}
+
+
+/* Peeking Node-Me Image with Jump Animation on Hover */
+.peeking-node-img {
+    position: absolute;
+    top: -95px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px; 
+    height: 160px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    z-index: 1; 
+    filter: none;
+    cursor: pointer; /* Shows it's interactive */
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Gives it a springy jump feel */
+}
+
+/* Jump Up Effect on Hover */
+.peeking-node-img:hover {
+    transform: translateX(-50%) translateY(-25px); /* Jumps up by 25px while keeping it centered horizontally */
+}
+/* Ensure the terminal box sits on top of the image */
+.hero-card-container .terminal-box {
+    position: relative;
+    z-index: 2;
+}
