@@ -52,18 +52,23 @@ body {
     overflow-y: auto;
 }
 
+/* Portfolio Section / Scrollable Rectangles */
 .portfolio-section {
     background-color: #FFFFFF;
     border: 3px solid #000000;
     width: 90%;
     max-width: 900px;
+    height: auto; /* Flexes based on content */
     max-height: 82vh;
-    padding: 35px;
+    padding: 35px 10%; /* 10% distance for text on left/right */
     box-sizing: border-box;
     margin: auto;
-    overflow-y: auto;
+    overflow-y: auto; /* Makes it a scrollable rectangle */
     scroll-snap-align: center;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 /* Scroll Down Indicator (Bottom Right) */
@@ -196,10 +201,10 @@ body {
     justify-content: center;
     background: #FFFFFF;
     border: 2px solid #000000;
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     text-decoration: none;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 .about-grid {
@@ -314,6 +319,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2rem;
 }
 
+/* Master Terminal Box (Flexible Height with 10% side text distance) */
 .terminal-box {
     position: relative;
     background-image: url('media/pixel-card.png');
@@ -322,14 +328,18 @@ h1, h2, h3, h4, h5, h6 {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     border: none !important;
-    padding: 50px;
-    max-width: 750px;
-    width: 90%;
+    width: 80% !important;
+    max-width: 1100px !important;
+    height: auto; /* Flexes shorter or taller based on content */
+    max-height: 85vh; /* Caps height if content is too large */
+    padding: 35px 10% !important; /* Forces 10% spacing on left & right */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-y: auto; /* Internal scroll if content exceeds max-height */
+    box-sizing: border-box;
 }
 
 .hero-main-title {
@@ -455,6 +465,7 @@ h1, h2, h3, h4, h5, h6 {
     99.9% { left: -100px; transform: scaleX(-1); }
     100% { left: -100px; transform: scaleX(1); }
 }
+
 /* Fix Scroll Snap on HTML and Body */
 html, body {
     height: 100%;
@@ -478,46 +489,26 @@ html, body {
     box-sizing: border-box;
 }
 
-/* Make Project Card in projects.html Larger */
-.terminal-box {
-    max-width: 1100px !important; /* Increased width */
-    width: 80% !important;
-    padding: 40px 60px !important;
-    min-height: 550px; /* Ensured room for everything */
-}
-
-/* Ensure GitHub icon fits inside expanded project info */
-.cyber-icon-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #FFFFFF;
-    border: 2px solid #000000;
-    width: 48px;
-    height: 48px;
-    margin-top: 10px;
-    text-decoration: none;
-}
 #aboutme .terminal-box {
     max-width: 1100px !important;
-    padding: 24px 32px;
+    padding: 24px 10% !important;
     font-size: 0.7rem;
 }
+
 #aboutme .paragraph-spacing {
     margin-bottom: 12px;
 }
-.terminal-box {
-    box-sizing: border-box;
-    padding: 25px 10% !important; /* 15% padding on left & right keeps text inside the screen frame */
-}
+
 .social-icon-link {
     text-decoration: none;
     border: none;
     outline: none;
 }
+
 .social-icons-row a {
     text-decoration: none !important;
 }
+
 /* Fixed full-screen overlay for the Navigation Hub */
 #hub {
     position: fixed;
@@ -530,8 +521,8 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.75); /* Dark semi-transparent backdrop */
-    backdrop-filter: blur(8px);       /* Blurs everything behind the hub */
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     opacity: 0;
     pointer-events: none;
@@ -539,18 +530,17 @@ html, body {
     visibility: hidden;
 }
 
-/* Shown state when activated */
 #hub.active {
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
 }
 
-/* Optional: Pause or blur main background contents */
 .content-wrapper.hub-open > section:not(#hub) {
     filter: blur(4px);
     transition: filter 0.3s ease;
 }
+
 .hub-hint-badge {
     position: fixed;
     top: 20px;
@@ -558,33 +548,32 @@ html, body {
     background: rgba(0, 0, 0, 0.85);
     color: #fff;
     padding: 8px 12px;
-    font-family: inherit; /* Matches your portfolio font */
+    font-family: inherit;
     font-size: 0.75rem;
     border: 2px solid #fff;
     border-radius: 4px;
-    z-index: 998; /* Sits below the hub overlay (9999) */
-    pointer-events: none; /* Allows clicks to pass through */
+    z-index: 998;
+    pointer-events: none;
     box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.3);
     letter-spacing: 0.5px;
 }
 
 .hub-hint-badge strong {
-    color: #ffcc00; /* Highlights the 'H' key for visibility */
+    color: #ffcc00;
 }
+
 /* Make all icons, node images, and avatars solid black and pixelated */
-/* 1. Turn SVGs and static PNG pixel nodes black by default */
 img[src$=".svg"], 
 .network-icon, 
 .control-icon, 
 .pixel-img {
     filter: brightness(0);
-    transition: filter 0.2s ease; /* Optional: adds a nice smooth snap on hover */
+    transition: filter 0.2s ease;
 }
 
-/* 2. Restore original colors on hover for ALL of them */
 img[src$=".svg"]:hover, 
 .network-icon:hover, 
 .control-icon:hover, 
 .pixel-img:hover {
-    filter: none; /* Brings back the true original colors */
+    filter: none;
 }
