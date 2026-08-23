@@ -26,13 +26,16 @@
 </head>
 <body>
 
+    <!-- HIDDEN BACKGROUND AUDIO -->
+    <audio id="bg-music" loop autoplay>
+        <source src="8-bit_hero.wav" type="audio/wav">
+    </audio>
+
     <div class="content-wrapper">
         
 <!-- HERO / INTRO SECTION -->
         <section class="full-screen-section">
-            <!-- Hero Wrapper to hold both the peeking image and the terminal card -->
             <div class="hero-card-container">
-                <!-- Peeking Avatar / Node Me Image -->
                 <img src="media/node-me.png" alt="Alex Morabito Avatar" class="peeking-node-img">
                 
                 <div class="terminal-box">
@@ -212,6 +215,21 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- BACKGROUND MUSIC LOGIC ---
+    const bgMusic = document.getElementById('bg-music');
+    
+    // Attempt to play immediately (some browsers allow this if volume is low or settings permit)
+    bgMusic.play().catch(error => {
+        // If the browser blocks autoplay, wait for the very first click on the page to start it
+        document.body.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+            }
+        }, { once: true });
+    });
+    // ------------------------------
+
     const peekingNode = document.querySelector('.peeking-node-img');
     
     if (!peekingNode) return;
@@ -254,7 +272,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }, duration * 1000);
         }
     });
-});</script>
+});
+</script>
 <script src="script.js"></script>
 </body>
 </html>
