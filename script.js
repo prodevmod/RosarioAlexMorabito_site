@@ -244,3 +244,43 @@ document.addEventListener('error', (event) => {
         // }
     }
 }, true);
+
+/* ==========================================
+   LIVE LAST.FM / SPOTIFY NOW PLAYING SYNC (ROBUST)
+   ========================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const trackTitleEl = document.getElementById('track-title');
+    const lastfmUsername = "prodevmod";
+
+    if (!trackTitleEl) return;
+
+    async function fetchNowPlaying() {
+        try {
+            const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastfmUsername}&api_key=1d293297a7a1efbc1b29d35272a08d87&format=json&limit=1`);
+            const data = await response.json();
+            
+            // Check if Last.fm returned an API error (e.g., invalid username or key)
+            if (data.error) {
+                trackTitleEl.textContent = "Last.fm: " + data.message;
+                return;
+            }
+
+            if (data.recenttracks && data.recenttracks.track && data.recenttracks.track.length > 0) {
+                const currentTrack = data.recenttracks.track[0];
+                const trackName = currentTrack.name;
+                const artistName = currentTrack.artist['#text'];
+                
+                trackTitleEl.textContent = `${trackName} - ${artistName}`;
+            } else {
+                trackTitleEl.textContent = "No recent tracks found";
+            }
+        } catch (error) {
+            console.error("Could not fetch listening status:", error);
+            trackTitleEl.textContent = "Offline / Not Playing";
+        }
+    }
+
+    // Fetch immediately and then check every 15 seconds
+    fetchNowPlaying();
+    setInterval(fetchNowPlaying, 15000);
+});
