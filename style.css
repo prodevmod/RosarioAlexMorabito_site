@@ -1,6 +1,11 @@
-/* Import Authentic Pixel Font */
+/* ==========================================================================
+   Rosario Alexandros Morabito - Retro Pixel Portfolio Stylesheet
+   ========================================================================== */
+
+/* Import Authentic Pixel Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap');
 
+/* --- GLOBAL RESET & BASE RULES --- */
 * { 
     margin: 0; 
     padding: 0; 
@@ -33,6 +38,28 @@ body {
     scroll-snap-stop: always;
 }
 
+/* Typography Uniformity */
+p, span, a, li {
+    font-family: 'Pixelify Sans', monospace;
+    color: #000000 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Pixelify Sans', monospace;
+    font-weight: bold;
+    color: #000000 !important;
+}
+
+.paragraph-spacing {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    margin-bottom: 25px;
+    font-size: 3.2rem;
+}
+
+/* --- SCROLL SNAP & STRUCTURE CONTAINERS --- */
 .content-wrapper {
     width: 100%;
     height: 100%;
@@ -77,7 +104,116 @@ body {
     align-items: center;
 }
 
-/* Scroll Down Indicator (Bottom Right) */
+/* Master Terminal Box (Custom Frame Image) */
+.terminal-box {
+    position: relative;
+    background-image: url('media/pixel-card.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    border: none !important;
+    width: 90% !important;
+    height: 90% !important;
+    max-width: 1350px !important; 
+    height: auto;
+    min-height: 600px;
+    max-height: 90vh;
+    padding: 5% 12% !important; /* Safe buffer on left/right so text stays inside pixel borders */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+#aboutme .terminal-box {
+    max-width: 1500px !important;
+    padding: 5% 12% !important; 
+    font-size: 1.35rem !important;
+}
+
+#aboutme .paragraph-spacing {
+    margin-bottom: 18px;
+}
+
+/* --- HERO & PEEKING AVATAR --- */
+.hero-card-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.hero-main-title {
+    font-size: 6.5rem;
+    margin: 15px 0;
+}
+
+.hero-subtitle {
+    font-size: 2.7rem;
+    margin-bottom: 35px;
+}
+
+.system-tag {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+}
+
+.peeking-node-img {
+    position: absolute;
+    top: -175px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 315px;
+    height: 315px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    z-index: 1; 
+    filter: none;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.peeking-node-img:hover {
+    transform: translateX(-50%) translateY(-45px);
+}
+
+/* Mini Avatar Gravity Animation (OnClick Easter Egg) */
+.mini-falling-avatar {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    pointer-events: none;
+    z-index: 9999;
+    animation: organicGravity var(--fall-duration, 2.2s) cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+
+@keyframes organicGravity {
+    0% {
+        transform: translate(0, 0) scale(0.5) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: translate(calc(var(--rand-x) * 0.8), -180px) scale(1.1) rotate(calc(var(--rand-rot) * 0.3));
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--rand-x), 110vh) scale(0.9) rotate(var(--rand-rot));
+        opacity: 0;
+    }
+}
+
+/* --- UI COMPONENTS & BUTTONS --- */
 .scroll-indicator {
     position: absolute;
     bottom: 20px;
@@ -99,6 +235,38 @@ body {
     50% { transform: translateY(8px); }
 }
 
+.btn {
+    position: relative;
+    overflow: hidden;
+    padding: 18px 35px;
+    border: 3px solid #000000;
+    color: #000000;
+    background: #FFFFFF;
+    text-decoration: none;
+    margin: 15px;
+    display: inline-block;
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 1.7rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.btn:hover { 
+    background: #F0F0F0; 
+    box-shadow: 4px 4px 0px #000000;
+    transform: translateY(-3px);
+}
+
+.repo-link {
+    color: #000000;
+    text-decoration: underline;
+    font-size: 1.4rem;
+    display: inline-block;
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+/* --- AUDIO PLAYER & PROJECT SHOWCASE UI --- */
 .player-header {
     display: flex;
     align-items: center;
@@ -220,6 +388,7 @@ body {
     height: 40px !important;
 }
 
+/* --- ABOUT & QUALIFICATIONS (HEALTH BARS & BLOCKS) --- */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -281,98 +450,95 @@ body {
     width: var(--health-pct, 50%);
 }
 
-.repo-link {
-    color: #000000;
-    text-decoration: underline;
-    font-size: 1.4rem;
-    display: inline-block;
-    margin-top: 6px;
-    font-weight: bold;
+/* --- SCATTERED PHOTO GALLERY (POLAROID STYLE) --- */
+.scattered-photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding: 2rem;
 }
 
-.btn {
+.photo-card {
+    background: #fdfdfd;
+    padding: 12px 12px 45px 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
     position: relative;
-    overflow: hidden;
-    padding: 18px 35px;
-    border: 3px solid #000000;
-    color: #000000;
-    background: #FFFFFF;
-    text-decoration: none;
-    margin: 15px;
-    display: inline-block;
-    font-family: 'Pixelify Sans', monospace;
-    font-size: 1.7rem;
-    font-weight: bold;
-    transition: all 0.2s ease;
-}
-
-.btn:hover { 
-    background: #F0F0F0; 
-    box-shadow: 4px 4px 0px #000000;
-    transform: translateY(-3px);
-}
-
-p, span, a, li {
-    font-family: 'Pixelify Sans', monospace;
-    color: #000000 !important;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Pixelify Sans', monospace;
-    font-weight: bold;
-    color: #000000 !important;
-}
-
-.paragraph-spacing {
-    margin-bottom: 20px;
-}
-
-.section-title {
-    margin-bottom: 25px;
-    font-size: 3.2rem;
-}
-
-/* Master Terminal Box */
-.terminal-box {
-    position: relative;
-    background-image: url('media/pixel-card.png');
-    background-size: 100% 100%; 
-    background-repeat: no-repeat;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-    border: none !important;
-    width: 90% !important;
-    height: 90% !important;
-    max-width: 1350px !important; 
-    height: auto;
-    min-height: 600px;
-    max-height: 90vh;
-    padding: 5% 12% !important; /* Forces a safe 12% buffer on left/right so text never touches or crosses the black borders */
-    margin: 0 auto;
+    max-width: 240px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    overflow-y: auto;
-    box-sizing: border-box;
-    z-index: 2;
+    z-index: 1;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), z-index 0s, box-shadow 0.3s ease;
 }
 
-.hero-main-title {
-    font-size: 6.5rem;
-    margin: 15px 0;
+.photo-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    min-height: 200px;
+    background-color: #2c2c2c; 
 }
 
-.hero-subtitle {
-    font-size: 2.7rem;
-    margin-bottom: 35px;
+.photo-caption {
+    font-family: 'Sekuya', sans-serif;
+    color: #111;
+    margin: 0;
+    font-size: 1.1rem;
+    text-align: center;
+    position: absolute;
+    bottom: 12px;
 }
 
-.system-tag {
-    font-size: 1.8rem;
-    letter-spacing: 3px;
+.photo-card:hover {
+    transform: scale(1.15) rotate(0deg) !important; 
+    z-index: 10;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
 
+.photo-card:nth-child(odd) { transform: rotate(-6deg); }
+.photo-card:nth-child(even) { transform: rotate(5deg); }
+.photo-card:nth-child(3n) { transform: rotate(-3deg); }
+.photo-card:nth-child(4n) { transform: rotate(7deg); }
+
+/* --- SOCIAL & NETWORK ICONS --- */
+.social-icon-link {
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+.social-icons-row a {
+    text-decoration: none !important;
+}
+
+img[src$=".svg"], 
+.network-icon, 
+.control-icon, 
+.pixel-img {
+    filter: brightness(0);
+    transition: filter 0.2s ease;
+}
+
+.network-icon {
+    width: 100px;
+    height: 50px;
+    object-fit: contain; 
+}
+
+img[src$=".svg"]:hover, 
+.network-icon:hover, 
+.control-icon:hover, 
+.pixel-img:hover {
+    filter: none;
+}
+
+/* --- NAVIGATION HUB (MODAL & GRID) --- */
 .hub-container {
     max-width: 1400px;
     width: 100%;
@@ -386,7 +552,6 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 3px 3px #000000;
 }
 
-/* 5-Node Hub Grid Layout */
 .scattered-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -458,58 +623,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 110px;
 }
 
-.walking-avatar-container {
-    position: fixed;
-    bottom: 30px;
-    left: 50px;
-    z-index: 100;
-    cursor: grab;
-    pointer-events: auto;
-    touch-action: none;
-    /* Animation removed; JS handles the continuous walking loop */
-}
-
-.walking-avatar-container:active {
-    cursor: grabbing;
-}
-
-.pixel-avatar {
-    width: 110px;
-    height: 110px;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-}
-
-@keyframes glideAcross {
-    0% { left: -150px; transform: scaleX(1); }
-    49.9% { left: 100vw; transform: scaleX(1); }
-    50% { left: 100vw; transform: scaleX(-1); }
-    99.9% { left: -150px; transform: scaleX(-1); }
-    100% { left: -150px; transform: scaleX(1); }
-}
-
-/* Explicitly targeted padding for About Me to keep text constrained safely inside the card frame */
-#aboutme .terminal-box {
-    max-width: 1500px !important;
-    padding: 5% 12% !important; 
-    font-size: 1.35rem !important;
-}
-
-#aboutme .paragraph-spacing {
-    margin-bottom: 18px;
-}
-
-.social-icon-link {
-    text-decoration: none;
-    border: none;
-    outline: none;
-}
-
-.social-icons-row a {
-    text-decoration: none !important;
-}
-
-/* Fixed full-screen overlay for the Navigation Hub */
+/* Full-Screen Overlay Navigation Hub */
 #hub {
     position: fixed;
     top: 0;
@@ -562,156 +676,163 @@ h1, h2, h3, h4, h5, h6 {
     color: #ffcc00;
 }
 
-/* Make general network SVGs, node images, and avatars solid black and pixelated by default */
-img[src$=".svg"], 
-.network-icon, 
-.control-icon, 
-.pixel-img {
-    filter: brightness(0);
-    transition: filter 0.2s ease;
-}
-
-/* Force network icons to scale to exactly 300x300px */
-.network-icon {
-    width: 100px;
-    height: 50px;
-    object-fit: contain; 
-}
-
-img[src$=".svg"]:hover, 
-.network-icon:hover, 
-.control-icon:hover, 
-.pixel-img:hover {
-    filter: none;
-}
-
-/* Container for the hero elements to manage layers */
-.hero-card-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 60px;
-}
-
-/* Peeking Node-Me Image with Spring Jump Animation */
-.peeking-node-img {
-    position: absolute;
-    top: -175px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 315px;
-    height: 315px;
-    object-fit: contain;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-    z-index: 1; 
-    filter: none;
-    cursor: pointer;
-    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.peeking-node-img:hover {
-    transform: translateX(-50%) translateY(-45px);
-}
-
-/* Mini avatar elements spawned on click */
-.mini-falling-avatar {
+/* --- WALKING AVATAR --- */
+.walking-avatar-container {
     position: fixed;
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
+    bottom: 30px;
+    left: 50px;
+    z-index: 100;
+    cursor: grab;
+    pointer-events: auto;
+    touch-action: none;
+}
+
+.walking-avatar-container:active {
+    cursor: grabbing;
+}
+
+.pixel-avatar {
+    width: 110px;
+    height: 110px;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
-    pointer-events: none;
-    z-index: 9999;
-    /* Longer duration (1.8s to 2.6s) for a slower, floatier fall */
-    animation: organicGravity var(--fall-duration, 2.2s) cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
 }
 
-@keyframes organicGravity {
-    0% {
-        transform: translate(0, 0) scale(0.5) rotate(0deg);
-        opacity: 1;
-    }
-    25% {
-        /* Shoots up higher and spreads significantly wider across the width */
-        transform: translate(calc(var(--rand-x) * 0.8), -180px) scale(1.1) rotate(calc(var(--rand-rot) * 0.3));
-        opacity: 1;
-    }
-    100% {
-        /* Continues falling smoothly down past the screen with no mid-air stall */
-        transform: translate(var(--rand-x), 110vh) scale(0.9) rotate(var(--rand-rot));
-        opacity: 0;
-    }
+@keyframes glideAcross {
+    0% { left: -150px; transform: scaleX(1); }
+    49.9% { left: 100vw; transform: scaleX(1); }
+    50% { left: 100vw; transform: scaleX(-1); }
+    99.9% { left: -150px; transform: scaleX(-1); }
+    100% { left: -150px; transform: scaleX(1); }
+}
+/* ==========================================
+   GLOBAL TERMINAL BOX FIX (DYNAMIC SIZING)
+   * Excludes the Navigation Hub (#hub)
+   ========================================== */
+.terminal-box:not(#hub *) {
+    position: relative;
+    background-image: url('media/pixel-card.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    
+    /* Transparent borders act as invisible walls to fix scroll clipping */
+    border-top: 85px solid transparent !important;
+    border-bottom: 85px solid transparent !important;
+    border-left: none !important;
+    border-right: none !important;
+    padding: 0 8% !important; 
+    
+    background-origin: border-box !important;
+    background-clip: border-box !important;
+    
+    width: 90% !important;
+    max-width: 1350px !important; 
+    
+    /* Let the box shrink to fit short content naturally */
+    height: auto !important; 
+    min-height: 400px !important; 
+    max-height: 82vh !important;  
+    margin: 0 auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    
+    overflow-y: auto; 
+    box-sizing: border-box;
+    z-index: 2;
 }
 
-/* --- SCATTERED PHOTO GALLERY --- */
+/* Ensure the About Me page respects the dynamic height and transparent borders */
+#aboutme .terminal-box {
+    max-width: 1500px !important;
+    padding: 0 12% !important; 
+    font-size: 1.35rem !important;
+    height: auto !important; 
+}
+
+/* ==========================================
+   NAVIGATION HUB EXCEPTION & OVERRIDE
+   ========================================== */
+#hub .terminal-box {
+    background: none !important;
+    border: none !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    height: auto !important;
+    padding: 0 !important;
+}
+/* ==========================================
+   2. FIX CARD BLOCKS & LINK MARGINS
+   ========================================== */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.about-block {
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-block p {
+    margin-bottom: 12px; /* Gives room between text lines */
+    line-height: 1.4;
+}
+
+/* Adds breathing room around the "Verify Certificate" link */
+.repo-link {
+    color: #000000;
+    text-decoration: underline;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-top: 15px; 
+    margin-bottom: 5px;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid #000000;
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+.repo-link:hover {
+    background: #000000;
+    color: #FFFFFF !important;
+}
+
+/* ==========================================
+   3. FIX ARTSY GALLERY MARGINS
+   ========================================== */
 .scattered-photo-gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    margin-top: 3rem;
-    padding: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem 1rem 3rem 1rem;
 }
 
-.photo-card {
-    background: #fdfdfd;
-    padding: 12px 12px 45px 12px; /* Extra padding on bottom for Polaroid look */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    border-radius: 3px;
-    position: relative;
-    max-width: 240px;
+/* ==========================================
+   4. FIX CONTACT ICONS SPACING
+   ========================================== */
+.social-icons-row {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    z-index: 1;
-    cursor: pointer;
-    
-    /* Smooth transitions for hover effects */
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), z-index 0s, box-shadow 0.3s ease;
-}
-
-.photo-card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border: 1px solid #ddd;
-    /* Placeholder fallback size/color if image isn't loaded yet */
-    min-height: 200px;
-    background-color: #2c2c2c; 
-}
-
-.photo-caption {
-    font-family: 'Sekuya', sans-serif; /* Using your custom font */
-    color: #111;
-    margin: 0;
-    font-size: 1.1rem;
-    text-align: center;
-    position: absolute;
-    bottom: 12px;
-}
-
-/* Hover effect: straighten, zoom, and bring to the very front */
-.photo-card:hover {
-    transform: scale(1.15) rotate(0deg) !important; 
-    z-index: 10;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-}
-
-/* Random scattering using nth-child rotations */
-.photo-card:nth-child(odd) {
-    transform: rotate(-6deg);
-}
-.photo-card:nth-child(even) {
-    transform: rotate(5deg);
-}
-.photo-card:nth-child(3n) {
-    transform: rotate(-3deg);
-}
-.photo-card:nth-child(4n) {
-    transform: rotate(7deg);
+    gap: 25px;
+    margin-top: 35px; /* Creates explicit separation from heading text */
+    margin-bottom: 25px;
 }

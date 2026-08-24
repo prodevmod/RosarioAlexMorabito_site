@@ -22,7 +22,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Sekuya&display=swap" rel="stylesheet">
-
 </head>
 <body>
 
@@ -33,81 +32,93 @@
 
     <div class="content-wrapper">
         
-<!-- HERO / INTRO SECTION -->
-        <section class="full-screen-section">
+        <!-- HERO / INTRO SECTION -->
+        <section class="full-screen-section" id="hero">
             <div class="hero-card-container">
                 <img src="media/node-me.png" alt="Alex Morabito Avatar" class="peeking-node-img">
                 
-                <div class="terminal-box">
+                <div class="terminal-box hero-box">
                     <h1 class="hero-main-title">Alex Morabito</h1>
                     <p class="hero-subtitle">Just a normal 15-year-old.</p>
                 </div>
             </div>
             <div class="scroll-indicator">SCROLL DOWN ▼</div>
         </section>
-<!-- ABOUT ME SECTION -->
+
+        <!-- ABOUT ME SECTION -->
         <section id="aboutme" class="full-screen-section snap-section">
-            <div class="player-header reveal-on-scroll">
+            <div class="terminal-box about-box">
+                <div class="terminal-content">
+                    <h1 class="section-title reveal-on-scroll">About Me & Core Motives</h1>
+                    
+                    <p class="paragraph-spacing">
+                        Welcome to my digital corner of the web! I am Rosario Alexandros Morabito, a versatile software developer interested in all kinds of tech, pixelated art, and audio engineering.
+                    </p>
+                    <p class="paragraph-spacing">
+                        <strong>My Motive:</strong> My core drive is to make STEM education accessible and available to everyone. I aim to tear down technical barriers by building community-driven tools, open systems, and educational networks for future builders.
+                    </p>
+                    <p>
+                        <strong>What I Do & Vibe:</strong> From backend systems and robotics to frontend web engineering, I adapt to whatever the project demands. Off the keyboard, my coding process is rhythm-driven with a soundtrack ranging from Sabaton and Metallica to Daft Punk.
+                    </p>
+                </div>
             </div>
-            <h1 class="section-title reveal-on-scroll" style="font-size: 3rem; margin-bottom: 8px;">About Me & Core Motives</h1>
-            
-            <div class="section-desc reveal-on-scroll content-constrained terminal-box" style="max-width: 850px; padding: 25px 14%; box-sizing: border-box; font-size: 0.82rem; line-height: 1.45; text-align: left;">
-                <p class="paragraph-spacing" style="margin-bottom: 8px;">
-                    Welcome to my digital corner of the web! I am Rosario Alexandros Morabito, a versatile software developer interested in all kinds of tech, pixelated art, and audio engineering.
-                </p>
-                <p class="paragraph-spacing" style="margin-bottom: 8px;">
-                    <strong>My Motive:</strong> My core drive is to make STEM education accessible and available to everyone. I aim to tear down technical barriers by building community-driven tools, open systems, and educational networks for future builders.
-                </p>
-                <p style="margin-bottom: 0;">
-                    <strong>What I Do & Vibe:</strong> From backend systems and robotics to frontend web engineering, I adapt to whatever the project demands. Off the keyboard, my coding process is rhythm-driven with a soundtrack ranging from Sabaton and Metallica to Daft Punk.
-                </p>
-            </div>
-            <div class="scroll-indicator reveal-on-scroll" style="margin-top: 10px;">SCROLL DOWN ▼</div>
+            <div class="scroll-indicator reveal-on-scroll">SCROLL DOWN ▼</div>
         </section>
 
         <!-- QUALIFICATIONS SECTION -->
         <section id="qualifications" class="full-screen-section">
-            <div class="section-desc reveal-on-scroll content-constrained terminal-box">
-                <h2 class="section-title">Qualifications: Skill Levels</h2>
-                <p class="paragraph-spacing">Core programming languages and technical competencies.</p>
+            <div class="terminal-box qualifications-box">
+                <div class="terminal-content">
+                    <h2 class="section-title">Qualifications: Skill Levels</h2>
+                    <p class="paragraph-spacing">Core programming languages and technical competencies.</p>
 
-                <div class="pixel-healthbar-container">
-                    <div class="healthbar-label-row">
-                        <span>Python & Autonomous Systems</span>
-                        <span>95%</span>
+                    <div class="pixel-healthbar-container">
+                        <div class="healthbar-label-row">
+                            <span>Python & Autonomous Systems</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="pixel-healthbar">
+                            <div class="pixel-healthbar-fill" style="--health-pct: 95%;"></div>
+                        </div>
                     </div>
-                    <div class="pixel-healthbar">
-                        <div class="pixel-healthbar-fill" style="--health-pct: 95%;"></div>
-                    </div>
-                </div>
 
-                <div class="pixel-healthbar-container">
-                    <div class="healthbar-label-row">
-                        <span>C# / Object-Oriented Programming</span>
-                        <span>90%</span>
+                    <div class="pixel-healthbar-container">
+                        <div class="healthbar-label-row">
+                            <span>C# / C / C++ / Object-Oriented Programming</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="pixel-healthbar">
+                            <div class="pixel-healthbar-fill" style="--health-pct: 90%;"></div>
+                        </div>
                     </div>
-                    <div class="pixel-healthbar">
-                        <div class="pixel-healthbar-fill" style="--health-pct: 90%;"></div>
-                    </div>
-                </div>
 
-                <div class="pixel-healthbar-container">
-                    <div class="healthbar-label-row">
-                        <span>Computer Science Fundamentals (CS50)</span>
-                        <span>90%</span>
+                    <div class="pixel-healthbar-container">
+                        <div class="healthbar-label-row">
+                            <span>Computer Science Fundamental Concepts</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="pixel-healthbar">
+                            <div class="pixel-healthbar-fill" style="--health-pct: 90%;"></div>
+                        </div>
                     </div>
-                    <div class="pixel-healthbar">
-                        <div class="pixel-healthbar-fill" style="--health-pct: 90%;"></div>
-                    </div>
-                </div>
 
-                <div class="pixel-healthbar-container">
-                    <div class="healthbar-label-row">
-                        <span>Web Development & Git Tools</span>
-                        <span>85%</span>
+                    <div class="pixel-healthbar-container">
+                        <div class="healthbar-label-row">
+                            <span>SQL </span>
+                            <span>85%</span>
+                        </div>
+                        <div class="pixel-healthbar">
+                            <div class="pixel-healthbar-fill" style="--health-pct: 85%;"></div>
+                        </div>
                     </div>
-                    <div class="pixel-healthbar">
-                        <div class="pixel-healthbar-fill" style="--health-pct: 85%;"></div>
+                    <div class="pixel-healthbar-container">
+                        <div class="healthbar-label-row">
+                            <span>HTML / CSS / JavaScript / Flask / Web Development</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="pixel-healthbar">
+                            <div class="pixel-healthbar-fill" style="--health-pct:95%;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,78 +127,82 @@
 
         <!-- ACHIEVEMENTS SECTION -->
         <section id="achievements" class="full-screen-section">
-            <div class="portfolio-section">
-                <h2 class="section-title">Achievements & Certificates</h2>
-                <p class="paragraph-spacing">Verified credentials, institutional completions, and hackathon awards.</p>
+            <div class="terminal-box achievements-box">
+                <div class="terminal-content">
+                    <h2 class="section-title">Achievements & Certificates</h2>
+                    <p class="paragraph-spacing">Verified credentials, institutional completions, and hackathon awards.</p>
 
-                <div class="about-grid">
-                    <div class="about-block">
-                        <h3>CS50x: Intro to Computer Science</h3>
-                        <p><strong>Awarded by:</strong> Harvard University (David J. Malan)</p>
-                        <p>Successfully completed ten rigorous problem sets and a final project.</p>
-                        <a href="https://cs50.harvard.edu/certificates/a215df26-68f1-47c1-89de-dd39cf77b6eb" target="_blank" class="repo-link">Verify Certificate</a>
-                    </div>
+                    <div class="about-grid">
+                        <div class="about-block">
+                            <h3>CS50x: Intro to Computer Science</h3>
+                            <p><strong>Awarded by:</strong> Harvard University (David J. Malan)</p>
+                            <p>Successfully completed ten rigorous problem sets and a final project.</p>
+                            <a href="https://cs50.harvard.edu/certificates/a215df26-68f1-47c1-89de-dd39cf77b6eb" target="_blank" class="repo-link">Verify Certificate</a>
+                        </div>
 
-                    <div class="about-block">
-                        <h3>MIT Beaver Works Summer Institute</h3>
-                        <p><strong>Course:</strong> Autonomous RACECAR</p>
-                        <p><strong>Issued by:</strong> MIT Lincoln Laboratory & School of Engineering.</p>
-                    </div>
+                        <div class="about-block">
+                            <h3>MIT Beaver Works Summer Institute</h3>
+                            <p><strong>Course:</strong> Autonomous RACECAR</p>
+                            <p><strong>Issued by:</strong> MIT Lincoln Laboratory & School of Engineering.</p>
+                        </div>
 
-                    <div class="about-block">
-                        <h3>Unity Development</h3>
-                        <p><strong>Organization:</strong> Algorithmics</p>
-                        <p>Mastered basic mechanics, scripting, and level design.</p>
-                    </div>
+                        <div class="about-block">
+                            <h3>Unity Development</h3>
+                            <p><strong>Organization:</strong> Algorithmics</p>
+                            <p>Mastered basic mechanics, scripting, and level design.</p>
+                        </div>
 
-                    <div class="about-block">
-                        <h3>Hack Club Stardance Challenge</h3>
-                        <p><strong>Achievement:</strong> Certificate of Recognition</p>
-                        <p>Built and shipped multiple projects for the global developer community.</p>
+                        <div class="about-block">
+                            <h3>Hack Club Stardance Challenge</h3>
+                            <p><strong>Achievement:</strong> Certificate of Recognition</p>
+                            <p>Built and shipped multiple projects for the global developer community.</p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="scroll-indicator">SCROLL DOWN ▼</div>
         </section>
-<!-- ARTSY SIDE SECTION -->
+
+        <!-- ARTSY SIDE SECTION -->
         <section id="artsy-side" class="full-screen-section">
-            <div class="portfolio-section">
-                <h2 class="section-title">My Artsy Side</h2>
-                <p class="paragraph-spacing">A scattered collection of my pixel art and creative experiments.</p>
+            <div class="terminal-box artsy-box">
+                <div class="terminal-content">
+                    <h2 class="section-title">My Artsy Side</h2>
+                    <p class="paragraph-spacing">A scattered collection of my pixel art and creative experiments.</p>
 
-                <div class="scattered-photo-gallery">
-                    <!-- Artwork 1 -->
-                    <div class="photo-card">
-                        <a href="https://www.pixilart.com/art/angry-clanker-cfr2556a97b0f9aws3" target="_blank">
-                            <img src="media/art1.png" alt="Artwork 1">
-                            <p class="photo-caption">Angry Clanker</p>
-                        </a>
-                    </div>
+                    <div class="scattered-photo-gallery">
+                        <!-- Artwork 1 -->
+                        <div class="photo-card">
+                            <a href="https://www.pixilart.com/art/angry-clanker-cfr2556a97b0f9aws3" target="_blank">
+                                <img src="media/art1.png" alt="Artwork 1">
+                                <p class="photo-caption">Angry Clanker</p>
+                            </a>
+                        </div>
 
-                    <!-- Artwork 2 -->
-                    <div class="photo-card">
-                        <a href="https://www.pixilart.com/art/super-boy-cfr2fb1a9f57acaws3?ft=user&ft_id=d" target="_blank">
-                            <img src="media/art2.png" alt="Artwork 2">
-                            <p class="photo-caption">Me</p>
-                        </a>
-                    </div>
+                        <!-- Artwork 2 -->
+                        <div class="photo-card">
+                            <a href="https://www.pixilart.com/art/super-boy-cfr2fb1a9f57acaws3?ft=user&ft_id=d" target="_blank">
+                                <img src="media/art2.png" alt="Artwork 2">
+                                <p class="photo-caption">Me</p>
+                            </a>
+                        </div>
 
-                    <!-- Artwork 3 -->
-                    <div class="photo-card">
-                        <a href="https://github.com/prodevmod/sonic-pi" target="_blank">
-                            <img src="media/art3.png" alt="Artwork 3">
-                            <p class="photo-caption">8-Bit Hero (music)</p>
-                        </a>
-                    </div>
+                        <!-- Artwork 3 -->
+                        <div class="photo-card">
+                            <a href="https://github.com/prodevmod/sonic-pi" target="_blank">
+                                <img src="media/art3.png" alt="Artwork 3">
+                                <p class="photo-caption">8-Bit Hero (music)</p>
+                            </a>
+                        </div>
 
-                    <!-- Artwork 4 -->
-                    <div class="photo-card">
-                        <a href="https://www.pixilart.com/art/retro-console-3-cfr243ca7c0f43aws3" target="_blank">
-                            <img src="media/art4.png" alt="Artwork 4">
-                            <p class="photo-caption">Retro Consoles</p>
-                        </a>
+                        <!-- Artwork 4 -->
+                        <div class="photo-card">
+                            <a href="https://www.pixilart.com/art/retro-console-3-cfr243ca7c0f43aws3" target="_blank">
+                                <img src="media/art4.png" alt="Artwork 4">
+                                <p class="photo-caption">Retro Consoles</p>
+                            </a>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
             <div class="scroll-indicator">SCROLL DOWN ▼</div>
@@ -195,62 +210,67 @@
 
         <!-- CONTACT SECTION -->
         <section id="contacts" class="full-screen-section">
-            <div class="section-desc reveal-on-scroll content-constrained terminal-box"h>
-                <div class="player-header reveal-on-scroll">
-                </div>
-                    <h2 class="reveal-on-scroll">Contact & Channels</h2>
-                <p class="tech-tag reveal-on-scroll">Open a secure channel or track my latest builds</p>
-                
-                <div class="social-icons-row reveal-on-scroll" style="margin-top: 2rem;">
-                    <a href="https://www.youtube.com/@CodingTode" target="_blank" class="social-icon-link">
-                        <img src="media/youtube.png" alt="YouTube" class="network-icon">
-                    </a>
-                    <a href="https://github.com/prodevmod" target="_blank" class="social-icon-link">
-                        <img src="media/github.png" alt="GitHub" class="network-icon">
-                    </a>
-                    <a href="https://www.instagram.com/code.toons" target="_blank" class="social-icon-link">
-                        <img src="media/instagram.png" alt="Instagram" class="network-icon">
-                    </a>
-                    <a href="https://www.pixilart.com/alexros" class="social-icon-link">
-                        <img src="media/pixil.png" alt="Pixilart" class="network-icon">
-                    </a>
-                   <a href="https://hackclub.enterprise.slack.com/team/U0A8XE18R7H" class="social-icon-link">
-                        <img src="media/slack.png" alt="Slack" class="network-icon">
-                    </a>
-                    <a href="https://x.com/Rosandrox" class="social-icon-link">
-                        <img src="media/x.png" alt="X" class="network-icon">
-                    </a>
-                    <a href="mailto:rosandrox12@gmail.com" class="social-icon-link">
-                        <img src="media/mail.png" alt="Email" class="network-icon">
-                    </a>
+            <div class="terminal-box contacts-box">
+                <div class="terminal-content">
+                    <h2 class="reveal-on-scroll section-title">Contact & Channels</h2>
+                    <p class="tech-tag reveal-on-scroll paragraph-spacing">Open a secure channel or track my latest builds</p>
+                    
+                    <div class="social-icons-row reveal-on-scroll">
+                        <a href="https://www.youtube.com/@CodingTode" target="_blank" class="social-icon-link">
+                            <img src="media/youtube.png" alt="YouTube" class="network-icon">
+                        </a>
+                        <a href="https://github.com/prodevmod" target="_blank" class="social-icon-link">
+                            <img src="media/github.png" alt="GitHub" class="network-icon">
+                        </a>
+                        <a href="https://www.instagram.com/code.toons" target="_blank" class="social-icon-link">
+                            <img src="media/instagram.png" alt="Instagram" class="network-icon">
+                        </a>
+                        <a href="https://www.pixilart.com/alexros" target="_blank" class="social-icon-link">
+                            <img src="media/pixil.png" alt="Pixilart" class="network-icon">
+                        </a>
+                        <a href="https://hackclub.enterprise.slack.com/team/U0A8XE18R7H" target="_blank" class="social-icon-link">
+                            <img src="media/slack.png" alt="Slack" class="network-icon">
+                        </a>
+                        <a href="https://x.com/Rosandrox" target="_blank" class="social-icon-link">
+                            <img src="media/x.png" alt="X" class="network-icon">
+                        </a>
+                        <a href="mailto:rosandrox12@gmail.com" class="social-icon-link">
+                            <img src="media/mail.png" alt="Email" class="network-icon">
+                        </a>
+                    </div>
                 </div>
             </div>
+            <div class="scroll-indicator">SCROLL DOWN ▼</div>
         </section>
 
         <!-- UNIVERSAL HUB SECTION (End of page) -->
         <section id="hub" class="full-screen-section hub-container">
-            <h2 class="hub-heading">Navigation Hub</h2>
-            <div class="scattered-grid">
-                <a href="index.html#qualifications" class="pixel-node node-qual">
-                    <img src="media/node-qualifications.png" alt="Qualifications" class="pixel-img">
-                    <span class="node-label">Qualifications</span>
-                </a>
-                <a href="projects.html" class="pixel-node node-proj">
-                    <img src="media/node-projects.png" alt="Projects" class="pixel-img">
-                    <span class="node-label">Projects</span>
-                </a>
-                <a href="index.html#aboutme" class="pixel-node node-about">
-                    <img src="media/node-me.png" alt="About Me" class="pixel-img">
-                    <span class="node-label">About Me</span>
-                </a>
-                <a href="blog.html" class="pixel-node node-blog">
-                    <img src="media/node-blog.png" alt="Blog" class="pixel-img">
-                    <span class="node-label">Blog</span>
-                </a>
-                <a href="index.html#contacts" class="pixel-node node-contact">
-                    <img src="media/node-contact.png" alt="Contact" class="pixel-img">
-                    <span class="node-label">Contact</span>
-                </a>
+            <div class="terminal-box hub-box">
+                <div class="terminal-content">
+                    <h2 class="hub-heading section-title">Navigation Hub</h2>
+                    <div class="scattered-grid">
+                        <a href="index.html#qualifications" class="pixel-node node-qual">
+                            <img src="media/node-qualifications.png" alt="Qualifications" class="pixel-img">
+                            <span class="node-label">Qualifications</span>
+                        </a>
+                        <a href="projects.html" class="pixel-node node-proj">
+                            <img src="media/node-projects.png" alt="Projects" class="pixel-img">
+                            <span class="node-label">Projects</span>
+                        </a>
+                        <a href="index.html#aboutme" class="pixel-node node-about">
+                            <img src="media/node-me.png" alt="About Me" class="pixel-img">
+                            <span class="node-label">About Me</span>
+                        </a>
+                        <a href="blog.html" class="pixel-node node-blog">
+                            <img src="media/node-blog.png" alt="Blog" class="pixel-img">
+                            <span class="node-label">Blog</span>
+                        </a>
+                        <a href="index.html#contacts" class="pixel-node node-contact">
+                            <img src="media/node-contact.png" alt="Contact" class="pixel-img">
+                            <span class="node-label">Contact</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -260,72 +280,63 @@
     <div class="walking-avatar-container">
         <img src="media/walking.gif" alt="Walking Avatar" class="pixel-avatar">
     </div>
+
     <!-- Press H Hint Badge -->
-<div class="hub-hint-badge">
-    Press <strong>H</strong> for Hub
-</div>
+    <div class="hub-hint-badge">
+        Press <strong>H</strong> for Hub
+    </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- BACKGROUND MUSIC LOGIC ---
-    const bgMusic = document.getElementById('bg-music');
-    
-    // Attempt to play immediately (some browsers allow this if volume is low or settings permit)
-    bgMusic.play().catch(error => {
-        // If the browser blocks autoplay, wait for the very first click on the page to start it
-        document.body.addEventListener('click', () => {
-            if (bgMusic.paused) {
-                bgMusic.play();
-            }
-        }, { once: true });
-    });
-    // ------------------------------
-
-    const peekingNode = document.querySelector('.peeking-node-img');
-    
-    if (!peekingNode) return;
-
-    peekingNode.addEventListener('click', (e) => {
-        // Prevent default behavior if wrapped in a link
-        e.preventDefault(); 
-
-        // Get the click/node coordinates
-        const rect = peekingNode.getBoundingClientRect();
-        const startX = rect.left + rect.width / 2;
-        const startY = rect.top + rect.height / 2;
-
-        // Number of mini versions to drop
-        const count = 15;
-
-        for (let i = 0; i < count; i++) {
-            const mini = document.createElement('img');
-            mini.src = peekingNode.src;
-            mini.classList.add('mini-falling-avatar');
-            
-            // Set initial position near the center of the peeking node
-            mini.style.left = `${startX - 20}px`;
-            mini.style.top = `${startY - 20}px`;
-
-            // Randomize horizontal scatter distance and rotation
-            const randomX = (Math.random() - 0.5) * 400; // Scatter left or right up to 200px
-            const randomRotation = (Math.random() - 0.5) * 720; // Spin up to 2 full rotations
-            const duration = 0.8 + Math.random() * 0.8; // Vary fall speed between 0.8s and 1.6s
-
-            mini.style.setProperty('--rand-x', `${randomX}px`);
-            mini.style.setProperty('--rand-rot', `${randomRotation}deg`);
-            mini.style.setProperty('--fall-duration', `${duration}s`);
-
-            document.body.appendChild(mini);
-
-            // Clean up the DOM element after the animation finishes
-            setTimeout(() => {
-                mini.remove();
-            }, duration * 1000);
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- BACKGROUND MUSIC LOGIC ---
+        const bgMusic = document.getElementById('bg-music');
+        if (bgMusic) {
+            bgMusic.play().catch(error => {
+                document.body.addEventListener('click', () => {
+                    if (bgMusic.paused) {
+                        bgMusic.play();
+                    }
+                }, { once: true });
+            });
         }
+
+        // --- AVATAR EASTER EGG ---
+        const peekingNode = document.querySelector('.peeking-node-img');
+        if (!peekingNode) return;
+
+        peekingNode.addEventListener('click', (e) => {
+            e.preventDefault();
+            const rect = peekingNode.getBoundingClientRect();
+            const startX = rect.left + rect.width / 2;
+            const startY = rect.top + rect.height / 2;
+            const count = 15;
+
+            for (let i = 0; i < count; i++) {
+                const mini = document.createElement('img');
+                mini.src = peekingNode.src;
+                mini.classList.add('mini-falling-avatar');
+                
+                mini.style.left = `${startX - 20}px`;
+                mini.style.top = `${startY - 20}px`;
+
+                const randomX = (Math.random() - 0.5) * 400;
+                const randomRotation = (Math.random() - 0.5) * 720;
+                const duration = 0.8 + Math.random() * 0.8;
+
+                mini.style.setProperty('--rand-x', `${randomX}px`);
+                mini.style.setProperty('--rand-rot', `${randomRotation}deg`);
+                mini.style.setProperty('--fall-duration', `${duration}s`);
+
+                document.body.appendChild(mini);
+
+                setTimeout(() => {
+                    mini.remove();
+                }, duration * 1000);
+            }
+        });
     });
-});
-</script>
-<script src="script.js"></script>
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>
+
