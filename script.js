@@ -250,13 +250,13 @@ document.addEventListener('error', (event) => {
    ========================================== */
 document.addEventListener('DOMContentLoaded', () => {
     const trackTitleEl = document.getElementById('track-title');
-    const lastfmUsername = "prodevmod";
-
+const lastfmUsername = "prodevmod"; 
+const apiKey = "194d501ce443209a8e9e5bb342f02bf4"; 
     if (!trackTitleEl) return;
 
     async function fetchNowPlaying() {
         try {
-            const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastfmUsername}&api_key=194d501ce443209a8e9e5bb342f02bf4&format=json&limit=1`);
+            const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastfmUsername}&api_key=${apiKey}&format=json&limit=1`);
             const data = await response.json();
             
             // Check if Last.fm returned an API error (e.g., invalid username or key)
