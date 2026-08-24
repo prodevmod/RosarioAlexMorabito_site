@@ -227,3 +227,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+/* ==========================================
+   GLOBAL BROKEN IMAGE HIDER
+   ========================================== */
+document.addEventListener('error', (event) => {
+    // Check if the element that failed to load is an image
+    if (event.target && event.target.tagName === 'IMG') {
+        event.target.style.display = 'none';
+        
+        // Optional: If you also want to hide the parent container card 
+        // if an API graph or logo completely fails to fetch:
+        // const parentCard = event.target.closest('.stat-card');
+        // if (parentCard && event.target.classList.contains('api-graph-img')) {
+        //     parentCard.style.display = 'none';
+        // }
+    }
+}, true);

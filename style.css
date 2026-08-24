@@ -1009,3 +1009,112 @@ img[src$=".svg"]:hover,
     background: #F9F9F9;
     box-shadow: 3px 3px 0px #000000;
 }
+/* ==========================================
+   DEVELOPER STATS SECTION STYLING
+   ========================================== */
+.stats-box {
+    max-width: 1500px !important;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Makes the GitHub card span nicely across the grid with room for graphs */
+.github-card-wide {
+    grid-column: 1 / -1;
+    max-width: 850px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.stat-card {
+    background: #FFFFFF;
+    border: 3px solid #000000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 6px 6px 0px #000000;
+}
+
+.stat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.stat-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.stat-card h3 {
+    font-size: 1.8rem;
+    color: #000000;
+    margin: 0;
+}
+
+.stat-info {
+    font-size: 1.2rem;
+    color: #555555;
+    margin-bottom: 15px;
+}
+
+.github-api-graphs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin: 10px 0 20px 0;
+}
+
+.api-graph-img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #000000;
+}
+
+.stat-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 20px;
+    border-top: 2px dashed #000000;
+    border-bottom: 2px dashed #000000;
+    padding: 10px 0;
+}
+
+.stat-list li {
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    color: #333333;
+}
+
+.stat-list li span {
+    font-weight: bold;
+    color: #000000;
+}
+
+.stat-btn {
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    text-decoration: none;
+}
