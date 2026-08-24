@@ -112,3 +112,29 @@ document.addEventListener('DOMContentLoaded', () => {
         document.removeEventListener('touchend', stopDrag);
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const muteBtn = document.getElementById('mute-btn');
+    if (!muteBtn) return;
+
+    let isMuted = localStorage.getItem('portfolio_is_muted') === 'true';
+
+    function updateMuteState(muted) {
+        const mediaElements = document.querySelectorAll('audio, video');
+        mediaElements.forEach(media => {
+            media.muted = muted;
+        });
+
+        muteBtn.style.opacity = muted ? '0.5' : '1.0';
+    }
+
+    updateMuteState(isMuted);
+
+    muteBtn.addEventListener('click', () => {
+        isMuted = !isMuted;
+
+        localStorage.setItem('portfolio_is_muted', isMuted);
+        
+        updateMuteState(isMuted);
+    });
+});

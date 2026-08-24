@@ -836,3 +836,105 @@ img[src$=".svg"]:hover,
     margin-top: 35px; /* Creates explicit separation from heading text */
     margin-bottom: 25px;
 }
+.desktop-warning-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    background-image: url('media/pixel-bg.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Styled retro warning box matching your theme */
+.warning-box {
+    background: #FFFFFF;
+    border: 6px solid #000000;
+    padding: 40px;
+    max-width: 500px;
+    box-shadow: 8px 8px 0px rgba(255, 255, 255, 0.2);
+}
+
+.warning-box h2 {
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 2.8rem;
+    color: #000000;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.warning-box p {
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 1.5rem;
+    color: #000000;
+    line-height: 1.4;
+}
+
+/* Trigger when screen width is smaller than 1024px (tablets and phones) */
+@media (max-width: 1024px) {
+    .desktop-warning-screen {
+        display: flex !important;
+    }
+    
+    /* Hides your main portfolio content and walking avatar */
+    .content-wrapper, 
+    .walking-avatar-container {
+        display: none !important;
+    }
+}
+/* ==========================================
+   TOP-LEFT RETRO MUTE BUTTON (CENTERED)
+   ========================================== */
+.mute-btn {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    background: #FFFFFF;
+    border: 3px solid #000000;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 4px 4px 0px #000000;
+    transition: transform 0.2s ease, background 0.2s ease;
+    padding: 0;
+}
+
+.mute-btn:hover {
+    background: #F0F0F0;
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0px #000000;
+}
+
+.mute-btn:active {
+    transform: translateY(2px);
+    box-shadow: 2px 2px 0px #000000;
+}
+
+.mute-btn img {
+    width: 28px !important;
+    height: 28px !important;
+    margin: 0 !important;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    display: block;
+}
+
+/* Hide the mute button on small screens where the desktop warning is active */
+@media (max-width: 1024px) {
+    .mute-btn {
+        display: none !important;
+    }
+}

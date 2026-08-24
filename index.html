@@ -29,9 +29,14 @@
     <audio id="bg-music" loop autoplay>
         <source src="8-bit_hero.wav" type="audio/wav">
     </audio>
-
-    <div class="content-wrapper">
-        
+        <!-- Desktop-Only Warning Screen -->
+<div class="desktop-warning-screen">
+    <div class="warning-box">
+        <h2>DESKTOP REQUIRED</h2>
+        <p>This retro pixel portfolio is built for desktop screens. Please open it on a computer for the optimal experience!</p>
+    </div>
+</div>
+        <div class="content-wrapper">
         <!-- HERO / INTRO SECTION -->
         <section class="full-screen-section" id="hero">
             <div class="hero-card-container">
@@ -285,6 +290,10 @@
     <div class="hub-hint-badge">
         Press <strong>H</strong> for Hub
     </div>
+<!-- Mute Button (Top Left) -->
+<button id="mute-btn" class="mute-btn" aria-label="Toggle Mute">
+    <img src="media/mute.png" alt="Mute Icon">
+</button>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
