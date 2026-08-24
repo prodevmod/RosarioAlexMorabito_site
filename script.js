@@ -250,8 +250,8 @@ document.addEventListener('error', (event) => {
    ========================================== */
 document.addEventListener('DOMContentLoaded', () => {
     const trackTitleEl = document.getElementById('track-title');
-const lastfmUsername = "prodevmod"; 
-const apiKey = "194d501ce443209a8e9e5bb342f02bf4"; 
+    const lastfmUsername = "prodevmod"; 
+    const apiKey = "194d501ce443209a8e9e5bb342f02bf4"; 
     if (!trackTitleEl) return;
 
     async function fetchNowPlaying() {
