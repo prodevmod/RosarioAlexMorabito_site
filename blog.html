@@ -9,6 +9,11 @@
 </head>
 <body>
 
+    <!-- HIDDEN BACKGROUND AUDIO -->
+    <audio id="bg-music" loop autoplay>
+        <source src="8-bit_hero.wav" type="audio/wav">
+    </audio>
+
     <main class="content-wrapper">
         
         <!-- BLOG PREVIEW 1 -->
@@ -79,6 +84,22 @@
     <div class="hub-hint-badge">
         Press <strong>H</strong> for Hub
     </div>
+    
+    <script>
+        // --- BACKGROUND MUSIC LOGIC ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const bgMusic = document.getElementById('bg-music');
+            
+            bgMusic.play().catch(error => {
+                document.body.addEventListener('click', () => {
+                    if (bgMusic.paused) {
+                        bgMusic.play();
+                    }
+                }, { once: true });
+            });
+        });
+        // ------------------------------
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

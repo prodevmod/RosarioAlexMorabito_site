@@ -342,6 +342,7 @@ h1, h2, h3, h4, h5, h6 {
     image-rendering: crisp-edges;
     border: none !important;
     width: 90% !important;
+    height: 90% !important;
     max-width: 1350px !important; 
     height: auto;
     min-height: 600px;
@@ -637,4 +638,73 @@ img[src$=".svg"]:hover,
         transform: translate(var(--rand-x), 110vh) scale(0.9) rotate(var(--rand-rot));
         opacity: 0;
     }
+}
+
+/* --- SCATTERED PHOTO GALLERY --- */
+.scattered-photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding: 2rem;
+}
+
+.photo-card {
+    background: #fdfdfd;
+    padding: 12px 12px 45px 12px; /* Extra padding on bottom for Polaroid look */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    position: relative;
+    max-width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    cursor: pointer;
+    
+    /* Smooth transitions for hover effects */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), z-index 0s, box-shadow 0.3s ease;
+}
+
+.photo-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    /* Placeholder fallback size/color if image isn't loaded yet */
+    min-height: 200px;
+    background-color: #2c2c2c; 
+}
+
+.photo-caption {
+    font-family: 'Sekuya', sans-serif; /* Using your custom font */
+    color: #111;
+    margin: 0;
+    font-size: 1.1rem;
+    text-align: center;
+    position: absolute;
+    bottom: 12px;
+}
+
+/* Hover effect: straighten, zoom, and bring to the very front */
+.photo-card:hover {
+    transform: scale(1.15) rotate(0deg) !important; 
+    z-index: 10;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Random scattering using nth-child rotations */
+.photo-card:nth-child(odd) {
+    transform: rotate(-6deg);
+}
+.photo-card:nth-child(even) {
+    transform: rotate(5deg);
+}
+.photo-card:nth-child(3n) {
+    transform: rotate(-3deg);
+}
+.photo-card:nth-child(4n) {
+    transform: rotate(7deg);
 }

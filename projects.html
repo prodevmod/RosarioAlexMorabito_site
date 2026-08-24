@@ -9,6 +9,11 @@
 </head>
 <body>
 
+    <!-- HIDDEN BACKGROUND AUDIO -->
+    <audio id="bg-music" loop autoplay>
+        <source src="8-bit_hero.wav" type="audio/wav">
+    </audio>
+
     <main class="content-wrapper">
         
         <!-- PROJECT SELECTOR SECTION -->
@@ -75,6 +80,20 @@
     </main>
 
 <script>
+    // --- BACKGROUND MUSIC LOGIC ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const bgMusic = document.getElementById('bg-music');
+        
+        bgMusic.play().catch(error => {
+            document.body.addEventListener('click', () => {
+                if (bgMusic.paused) {
+                    bgMusic.play();
+                }
+            }, { once: true });
+        });
+    });
+    // ------------------------------
+
     const githubUsername = "prodevmod"; 
 
     let projects = [];
