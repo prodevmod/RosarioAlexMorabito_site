@@ -138,3 +138,92 @@ document.addEventListener('DOMContentLoaded', () => {
         updateMuteState(isMuted);
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const defaultOpinions = [
+        { name: "Alex R.", text: "Super cool retro layout! Love the pixel card styling." },
+        { name: "DevGuy99", text: "The audio player and walking avatar are top-tier additions." },
+        { name: "Anonymous", text: "Clean structure and awesome attention to pixel detail." }
+    ];
+
+    // Load saved opinions from localStorage or load defaults
+    let opinions = JSON.parse(localStorage.getItem('portfolio_opinions')) || defaultOpinions;
+    let currentIndex = 0;
+    let autoCycleTimer = null;
+
+    const opinionText = document.getElementById('opinion-text');
+    const opinionAuthor = document.getElementById('opinion-author');
+    const prevBtn = document.getElementById('prev-opinion-btn');
+    const skipBtn = document.getElementById('skip-opinion-btn');
+    const form = document.getElementById('opinion-form');
+    const nameInput = document.getElementById('opinion-name');
+    const messageInput = document.getElementById('opinion-message');
+
+    function displayOpinion(index) {
+        if (!opinionText || !opinions.length) return;
+        const op = opinions[index];
+        opinionText.textContent = `"${op.text}"`;
+        opinionAuthor.textContent = `- ${op.name}`;
+    }
+
+    function nextOpinion() {
+        currentIndex = (currentIndex + 1) % opinions.length;
+        displayOpinion(currentIndex);
+    }
+
+    function prevOpinion() {
+        currentIndex = (currentIndex - 1 + opinions.length) % opinions.length;
+        displayOpinion(currentIndex);
+    }
+
+    function startAutoCycle() {
+        stopAutoCycle();
+        autoCycleTimer = setInterval(nextOpinion, 5000); // Cycles every 5 seconds
+    }
+
+    function stopAutoCycle() {
+        if (autoCycleTimer) {
+            clearInterval(autoCycleTimer);
+        }
+    }
+
+    if (opinionText && prevBtn && skipBtn) {
+        displayOpinion(currentIndex);
+        startAutoCycle();
+
+        // Manual override: Go back and restart timer
+        prevBtn.addEventListener('click', () => {
+            prevOpinion();
+            startAutoCycle();
+        });
+
+        // Manual override: Skip forward and restart timer
+        skipBtn.addEventListener('click', () => {
+            nextOpinion();
+            startAutoCycle();
+        });
+    }
+
+    // Handle user submissions
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const newOp = {
+                name: nameInput.value.trim() || "Anonymous",
+                text: messageInput.value.trim()
+            };
+
+            opinions.push(newOp);
+            localStorage.setItem('portfolio_opinions', JSON.stringify(opinions));
+
+            // Jump straight to the user's newly added opinion
+            currentIndex = opinions.length - 1;
+            displayOpinion(currentIndex);
+
+            // Reset form inputs
+            nameInput.value = '';
+            messageInput.value = '';
+            startAutoCycle();
+        });
+    }
+});

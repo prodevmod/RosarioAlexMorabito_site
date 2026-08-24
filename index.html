@@ -277,8 +277,40 @@
                     </div>
                 </div>
             </div>
+            <div class="scroll-indicator">SCROLL DOWN ▼</div>
         </section>
 
+<section class="full-screen-section" id="feedback">
+    <div class="terminal-box">
+        <h2 class="section-title">Visitor Log</h2>
+        <p class="paragraph-spacing">Leave your thoughts on my portfolio or read what others have said!</p>
+        
+        <!-- Opinions Cycling Box -->
+        <div class="opinion-display-container">
+            <div class="opinion-card">
+                <p id="opinion-text">"Loading community feedback..."</p>
+                <small id="opinion-author">- Anonymous</small>
+            </div>
+            
+            <!-- Manual Navigation Controls -->
+            <div class="opinion-controls">
+                <button id="prev-opinion-btn" class="control-btn" aria-label="Previous Opinion">
+                    <img src="media/previous.png" alt="Previous" class="control-icon">
+                </button>
+                <button id="skip-opinion-btn" class="control-btn" aria-label="Next Opinion">
+                    <img src="media/skip.png" alt="Skip" class="control-icon">
+                </button>
+            </div>
+        </div>
+
+        <!-- Submission Form -->
+        <form id="opinion-form" class="opinion-form">
+            <input type="text" id="opinion-name" placeholder="Your Name / Handle" required maxlength="30">
+            <textarea id="opinion-message" placeholder="Write your opinion about me..." required maxlength="200" rows="3"></textarea>
+            <button type="submit" class="btn">Submit Opinion</button>
+        </form>
+    </div>
+</section>
     </div>
 
     <!-- Gliding Walking Avatar -->
