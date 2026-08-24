@@ -571,6 +571,13 @@ img[src$=".svg"],
     transition: filter 0.2s ease;
 }
 
+/* Force network icons to scale to exactly 300x300px */
+.network-icon {
+    width: 100px;
+    height: 50px;
+    object-fit: contain; 
+}
+
 img[src$=".svg"]:hover, 
 .network-icon:hover, 
 .control-icon:hover, 
