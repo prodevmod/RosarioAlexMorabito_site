@@ -87,7 +87,15 @@
     <!-- Mute Button (Top Left) -->
 <button id="mute-btn" class="mute-btn" aria-label="Toggle Mute">
     <img src="media/mute.png" alt="Mute Icon">
-</button>hy
+</button>
+    <!-- Currently Listening Widget (Bottom Left) -->
+<div id="listening-widget" class="listening-widget">
+    <div class="listening-icon">♫</div>
+    <div class="listening-info">
+        <span class="listening-label">NOW SPINNING</span>
+        <span id="track-title" class="track-title">Connecting to Last.fm...</span>
+    </div>
+</div>
     
     <script>
         // --- BACKGROUND MUSIC LOGIC ---
