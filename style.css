@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Rosario Alexandros Morabito - Retro Pixel Portfolio Stylesheet
-   ========================================================================== */
-
 /* Import Authentic Pixel Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap');
 
@@ -13,10 +9,9 @@
 }
 
 html {
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     height: 100vh;
-    overflow-y: scroll;
+    overflow: hidden; /* Prevents default window scrollbar overlap */
 }
 
 body {
@@ -32,10 +27,8 @@ body {
     font-family: 'Pixelify Sans', monospace, sans-serif;
     font-size: 2.0rem; 
     height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden; /* Handled exclusively by .content-wrapper */
     position: relative;
-    scroll-snap-type: y mandatory;
-    scroll-snap-stop: always;
 }
 
 /* Typography Uniformity */
@@ -62,10 +55,10 @@ h1, h2, h3, h4, h5, h6 {
 /* --- SCROLL SNAP & STRUCTURE CONTAINERS --- */
 .content-wrapper {
     width: 100%;
-    height: 100%;
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
     height: 100vh;
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .full-screen-section {
@@ -105,39 +98,59 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Master Terminal Box (Custom Frame Image) */
-.terminal-box {
+.terminal-box:not(#hub *) {
     position: relative;
     background-image: url('media/pixel-card.png');
     background-size: 100% 100%; 
     background-repeat: no-repeat;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
-    border: none !important;
+    
+    /* Transparent borders act as inner spacing to prevent clipping */
+    border-top: 85px solid transparent !important;
+    border-bottom: 85px solid transparent !important;
+    border-left: none !important;
+    border-right: none !important;
+    padding: 0 8% !important; 
+    
+    background-origin: border-box !important;
+    background-clip: border-box !important;
+    
     width: 90% !important;
-    height: 90% !important;
     max-width: 1350px !important; 
-    height: auto;
-    min-height: 600px;
-    max-height: 90vh;
-    padding: 5% 12% !important; /* Safe buffer on left/right so text stays inside pixel borders */
+    height: auto !important; 
+    min-height: 400px !important; 
+    max-height: 82vh !important;  
     margin: 0 auto;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    overflow-y: auto;
+    justify-content: flex-start; 
+    
+    overflow-y: auto; 
     box-sizing: border-box;
     z-index: 2;
 }
 
 #aboutme .terminal-box {
     max-width: 1500px !important;
-    padding: 5% 12% !important; 
+    padding: 0 12% !important; 
     font-size: 1.35rem !important;
+    height: auto !important; 
 }
 
 #aboutme .paragraph-spacing {
     margin-bottom: 18px;
+}
+
+#hub .terminal-box {
+    background: none !important;
+    border: none !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    height: auto !important;
+    padding: 0 !important;
 }
 
 /* --- HERO & PEEKING AVATAR --- */
@@ -260,10 +273,20 @@ h1, h2, h3, h4, h5, h6 {
 .repo-link {
     color: #000000;
     text-decoration: underline;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     display: inline-block;
-    margin-top: 6px;
+    margin-top: 15px; 
+    margin-bottom: 5px;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid #000000;
     font-weight: bold;
+    align-self: flex-start;
+}
+
+.repo-link:hover {
+    background: #000000;
+    color: #FFFFFF !important;
 }
 
 /* --- AUDIO PLAYER & PROJECT SHOWCASE UI --- */
@@ -391,15 +414,19 @@ h1, h2, h3, h4, h5, h6 {
 /* --- ABOUT & QUALIFICATIONS (HEALTH BARS & BLOCKS) --- */
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
     margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .about-block {
     background: #FFFFFF;
     border: 2px solid #000000;
-    padding: 25px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .about-block h3 {
@@ -411,6 +438,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.about-block p {
+    margin-bottom: 12px;
+    line-height: 1.4;
 }
 
 .pixel-healthbar-container {
@@ -457,8 +489,9 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    margin-top: 3rem;
-    padding: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem 1rem 3rem 1rem;
 }
 
 .photo-card {
@@ -486,7 +519,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .photo-caption {
-    font-family: 'Sekuya', sans-serif;
+    font-family: 'Pixelify Sans', sans-serif;
     color: #111;
     margin: 0;
     font-size: 1.1rem;
@@ -511,6 +544,16 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
     border: none;
     outline: none;
+}
+
+.social-icons-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 35px;
+    margin-bottom: 25px;
 }
 
 .social-icons-row a {
@@ -705,194 +748,8 @@ img[src$=".svg"]:hover,
     99.9% { left: -150px; transform: scaleX(-1); }
     100% { left: -150px; transform: scaleX(1); }
 }
-/* ==========================================
-   GLOBAL TERMINAL BOX FIX (DYNAMIC SIZING)
-   * Excludes the Navigation Hub (#hub)
-   ========================================== */
-.terminal-box:not(#hub *) {
-    position: relative;
-    background-image: url('media/pixel-card.png');
-    background-size: 100% 100%; 
-    background-repeat: no-repeat;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-    
-    /* Transparent borders act as invisible walls to fix scroll clipping */
-    border-top: 85px solid transparent !important;
-    border-bottom: 85px solid transparent !important;
-    border-left: none !important;
-    border-right: none !important;
-    padding: 0 8% !important; 
-    
-    background-origin: border-box !important;
-    background-clip: border-box !important;
-    
-    width: 90% !important;
-    max-width: 1350px !important; 
-    
-    /* Let the box shrink to fit short content naturally */
-    height: auto !important; 
-    min-height: 400px !important; 
-    max-height: 82vh !important;  
-    margin: 0 auto;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; 
-    
-    overflow-y: auto; 
-    box-sizing: border-box;
-    z-index: 2;
-}
 
-/* Ensure the About Me page respects the dynamic height and transparent borders */
-#aboutme .terminal-box {
-    max-width: 1500px !important;
-    padding: 0 12% !important; 
-    font-size: 1.35rem !important;
-    height: auto !important; 
-}
-
-/* ==========================================
-   NAVIGATION HUB EXCEPTION & OVERRIDE
-   ========================================== */
-#hub .terminal-box {
-    background: none !important;
-    border: none !important;
-    min-height: unset !important;
-    max-height: unset !important;
-    height: auto !important;
-    padding: 0 !important;
-}
-/* ==========================================
-   2. FIX CARD BLOCKS & LINK MARGINS
-   ========================================== */
-.about-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
-.about-block {
-    background: #FFFFFF;
-    border: 2px solid #000000;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.about-block p {
-    margin-bottom: 12px; /* Gives room between text lines */
-    line-height: 1.4;
-}
-
-/* Adds breathing room around the "Verify Certificate" link */
-.repo-link {
-    color: #000000;
-    text-decoration: underline;
-    font-size: 1.2rem;
-    display: inline-block;
-    margin-top: 15px; 
-    margin-bottom: 5px;
-    padding: 4px 8px;
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid #000000;
-    font-weight: bold;
-    align-self: flex-start;
-}
-
-.repo-link:hover {
-    background: #000000;
-    color: #FFFFFF !important;
-}
-
-/* ==========================================
-   3. FIX ARTSY GALLERY MARGINS
-   ========================================== */
-.scattered-photo-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding: 1.5rem 1rem 3rem 1rem;
-}
-
-/* ==========================================
-   4. FIX CONTACT ICONS SPACING
-   ========================================== */
-.social-icons-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    margin-top: 35px; /* Creates explicit separation from heading text */
-    margin-bottom: 25px;
-}
-.desktop-warning-screen {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000000;
-    background-image: url('media/pixel-bg.png');
-    background-size: cover;
-    background-position: center;
-    z-index: 99999;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-}
-
-/* Styled retro warning box matching your theme */
-.warning-box {
-    background: #FFFFFF;
-    border: 6px solid #000000;
-    padding: 40px;
-    max-width: 500px;
-    box-shadow: 8px 8px 0px rgba(255, 255, 255, 0.2);
-}
-
-.warning-box h2 {
-    font-family: 'Pixelify Sans', monospace;
-    font-size: 2.8rem;
-    color: #000000;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.warning-box p {
-    font-family: 'Pixelify Sans', monospace;
-    font-size: 1.5rem;
-    color: #000000;
-    line-height: 1.4;
-}
-
-/* Trigger when screen width is smaller than 1024px (tablets and phones) */
-@media (max-width: 1024px) {
-    .desktop-warning-screen {
-        display: flex !important;
-    }
-    
-    /* Hides your main portfolio content and walking avatar */
-    .content-wrapper, 
-    .walking-avatar-container {
-        display: none !important;
-    }
-}
-/* ==========================================
-   TOP-LEFT RETRO MUTE BUTTON (CENTERED)
-   ========================================== */
+/* --- RETRO MUTE BUTTON --- */
 .mute-btn {
     position: fixed;
     top: 25px;
@@ -932,15 +789,7 @@ img[src$=".svg"]:hover,
     display: block;
 }
 
-/* Hide the mute button on small screens where the desktop warning is active */
-@media (max-width: 1024px) {
-    .mute-btn {
-        display: none !important;
-    }
-}
-/* ==========================================
-   VISITOR OPINION & FEEDBACK SECTION
-   ========================================== */
+/* --- VISITOR OPINION & FEEDBACK SECTION --- */
 .opinion-display-container {
     width: 100%;
     display: flex;
@@ -1009,9 +858,8 @@ img[src$=".svg"]:hover,
     background: #F9F9F9;
     box-shadow: 3px 3px 0px #000000;
 }
-/* ==========================================
-   DEVELOPER STATS SECTION STYLING
-   ========================================== */
+
+/* --- DEVELOPER STATS SECTION --- */
 .stats-box {
     max-width: 1500px !important;
 }
@@ -1024,7 +872,6 @@ img[src$=".svg"]:hover,
     margin-top: 15px;
 }
 
-/* Makes the GitHub card span nicely across the grid with room for graphs */
 .github-card-wide {
     grid-column: 1 / -1;
     max-width: 850px;
@@ -1118,9 +965,8 @@ img[src$=".svg"]:hover,
     padding: 8px 16px;
     text-decoration: none;
 }
-/* ==========================================
-   BOTTOM-LEFT CURRENTLY LISTENING WIDGET
-   ========================================== */
+
+/* --- CURRENTLY LISTENING WIDGET --- */
 .listening-widget {
     position: fixed;
     bottom: 25px;
@@ -1169,8 +1015,57 @@ img[src$=".svg"]:hover,
     font-family: inherit;
 }
 
-/* Hide on mobile/smaller screens */
+/* --- DESKTOP WARNING SCREEN (RESPONSIVE OVERRIDES) --- */
+.desktop-warning-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    background-image: url('media/pixel-bg.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.warning-box {
+    background: #FFFFFF;
+    border: 6px solid #000000;
+    padding: 40px;
+    max-width: 500px;
+    box-shadow: 8px 8px 0px rgba(255, 255, 255, 0.2);
+}
+
+.warning-box h2 {
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 2.8rem;
+    color: #000000;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.warning-box p {
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 1.5rem;
+    color: #000000;
+    line-height: 1.4;
+}
+
+/* Hide desktop view & overlays on smaller screens */
 @media (max-width: 1024px) {
+    .desktop-warning-screen {
+        display: flex !important;
+    }
+    
+    .content-wrapper, 
+    .walking-avatar-container,
+    .mute-btn,
     .listening-widget {
         display: none !important;
     }
